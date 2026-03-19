@@ -47,7 +47,7 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
             className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[480px]"
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.6, delay: 0.1 }}
+            transition={{ ease: easeSmooth, duration: 0.6, delay: 0.1 }}
           >
             <img
               src={heroImage}
