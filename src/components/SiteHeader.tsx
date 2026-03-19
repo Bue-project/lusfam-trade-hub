@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, MessageCircle, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/lusfam-logo.png";
+import logo from "@/assets/logo-lusfam.jpeg";
 
 const navLinks = [
   { label: "Products", href: "/products" },
