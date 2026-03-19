@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-terminal.jpg";
 
+const smoothEase = [0.32, 0.72, 0, 1] as const;
+
 const fadeUp = {
   initial: { opacity: 0, y: 8 },
   animate: { opacity: 1, y: 0 },
-  transition: { ease: [0.32, 0.72, 0, 1], duration: 0.5 },
+  transition: { ease: smoothEase as unknown as number[], duration: 0.5 },
 };
 
 interface HeroSectionProps {
