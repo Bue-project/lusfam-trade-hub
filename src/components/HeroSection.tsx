@@ -15,7 +15,12 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
       <div className="container-site py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left content */}
-          <motion.div className="space-y-6" {...fadeUp}>
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ease: easeSmooth, duration: 0.5 }}
+          >
             <div className="ui-label text-primary">Energy Trading</div>
             <h1 className="text-foreground">
               Fueling Southern Africa.{" "}
