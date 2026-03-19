@@ -11,9 +11,9 @@ import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   { icon: MapPin, label: "Office", value: "Harare, Zimbabwe" },
-  { icon: Phone, label: "Phone", value: "+263 77 123 4567" },
+  { icon: Phone, label: "Phone", value: "+263 77 354 0198" },
   { icon: Mail, label: "Email", value: "info@lusfamenergy.com" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+263 77 123 4567", href: "https://wa.me/263771234567" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+263 77 123 4567", href: "https://wa.me/263773540198" },
 ];
 
 const Contact = () => {
