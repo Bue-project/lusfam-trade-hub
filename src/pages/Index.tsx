@@ -2,7 +2,6 @@ import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection";
 import ProductTilesSection from "@/components/ProductTilesSection";
 import MapPreviewSection from "@/components/MapPreviewSection";
 import TransactionFlowSection from "@/components/TransactionFlowSection";
@@ -17,7 +16,6 @@ const Index = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         <HeroSection onRequestQuote={() => setRfqOpen(true)} />
-        <StatsSection />
         <ProductTilesSection />
         <MapPreviewSection />
         <TransactionFlowSection />
