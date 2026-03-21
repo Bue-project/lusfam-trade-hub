@@ -93,7 +93,7 @@ const SiteHeader = ({ onRequestQuote }: SiteHeaderProps) => {
                 EN
               </button>
               <a
-                href="https://wa.me/263771234567"
+                href="https://wa.me/263773540198"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-sm text-muted-foreground"
