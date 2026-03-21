@@ -15,13 +15,13 @@ const values = [
 const leadership = [
   {
     name: "Absalom Lusuwi",
-    role: "Founder & Managing Director",
-    bio: "With over two decades of experience in energy trading and commodities across Southern Africa, Absalom founded LusFam Trust Investments to bridge the gap between reliable fuel supply and growing regional demand. His deep understanding of cross-border logistics and regulatory frameworks has positioned LusFam as a trusted partner for governments and private enterprises alike.",
+    role: "Director",
+    bio: "Absalom leads LusFam Energy Trading with a focus on building international partnerships and supporting petroleum supply initiatives into emerging Southern African markets. His strategic vision drives the company's growth and expanding partner network.",
   },
   {
     name: "Agnes Lusuwi",
-    role: "Director of Operations",
-    bio: "Agnes brings extensive expertise in supply chain management and operational excellence to LusFam Energy Trading. Her focus on efficiency, compliance, and stakeholder engagement ensures seamless delivery across all markets. Agnes plays a pivotal role in expanding LusFam's footprint into new territories.",
+    role: "Director",
+    bio: "Agnes manages the administrative operations of LusFam Energy Trading, ensuring that all processes run smoothly. Her attention to operational detail supports the company's commitment to professional and reliable service delivery.",
   },
 ];
 
