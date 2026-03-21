@@ -56,7 +56,7 @@ const MarketsPage = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
-        <section className="section-spacing">
+        <section className="section-spacing bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container-site">
             <motion.div
               className="mb-12"
@@ -64,11 +64,29 @@ const MarketsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease, duration: 0.4 }}
             >
-              <div className="ui-label text-primary mb-3">Coverage</div>
-              <h1>Markets & Operations</h1>
-              <p className="text-muted-foreground text-lg mt-3">
+              <motion.div 
+                className="ui-label text-primary mb-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.4, ease }}
+              >
+                Coverage
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5, ease }}
+              >
+                Markets & Operations
+              </motion.h1>
+              <motion.p 
+                className="text-muted-foreground text-lg mt-3"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease }}
+              >
                 Operating across five Southern African markets with established logistics corridors and port access.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Overlay toggle */}

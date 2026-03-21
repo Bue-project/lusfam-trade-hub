@@ -20,10 +20,10 @@ const SiteHeader = ({ onRequestQuote }: SiteHeaderProps) => {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 h-[4.5rem] border-b border-border bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 h-[5rem] border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container-site flex h-full items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="LusFam Energy Trading" className="h-10 w-auto" />
+        <Link to="/" className="flex items-center gap-2 group">
+          <img src={logo} alt="LusFam Energy Trading" className="h-14 w-auto transition-transform duration-300 group-hover:scale-110" />
         </Link>
 
         {/* Desktop nav */}

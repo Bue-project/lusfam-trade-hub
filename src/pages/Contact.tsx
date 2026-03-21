@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
@@ -8,6 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const contactInfo = [
   { icon: MapPin, label: "Office", value: "Harare, Zimbabwe" },
@@ -31,15 +34,32 @@ const Contact = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-primary text-primary-foreground py-20 lg:py-28">
+        <section className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-20 lg:py-28">
           <div className="container-site">
-            <p className="ui-label text-primary-foreground/60 mb-4">Contact</p>
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight max-w-2xl">
+            <motion.p 
+              className="ui-label text-primary-foreground/60 mb-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease }}
+            >
+              Contact
+            </motion.p>
+            <motion.h1 
+              className="text-4xl lg:text-5xl font-bold leading-tight max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5, ease }}
+            >
               Get in Touch
-            </h1>
-            <p className="mt-6 text-lg text-primary-foreground/70 max-w-xl leading-relaxed">
+            </motion.h1>
+            <motion.p 
+              className="mt-6 text-lg text-primary-foreground/70 max-w-xl leading-relaxed"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.4, ease }}
+            >
               Whether you need a quote, have a question, or want to explore a partnership — our trade desk is ready to help.
-            </p>
+            </motion.p>
           </div>
         </section>
 

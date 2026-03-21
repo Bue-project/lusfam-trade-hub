@@ -38,7 +38,7 @@ const ProductsPage = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
-        <section className="section-spacing">
+        <section className="section-spacing bg-gradient-to-b from-primary/5 to-transparent">
           <div className="container-site">
             <motion.div
               className="mb-12"
@@ -46,8 +46,21 @@ const ProductsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease, duration: 0.4 }}
             >
-              <div className="ui-label text-primary mb-3">Products & Services</div>
-              <h1>Energy Products</h1>
+              <motion.div 
+                className="ui-label text-primary mb-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.4, ease }}
+              >
+                Products & Services
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5, ease }}
+              >
+                Energy Products
+              </motion.h1>
               <p className="text-muted-foreground text-lg mt-3">
                 Browse our full range of petroleum products available for bulk procurement across Southern Africa.
               </p>
