@@ -3,30 +3,10 @@ import { Fuel, Flame, Plane, Droplets, Download, ArrowRight } from "lucide-react
 import { Link } from "react-router-dom";
 
 const products = [
-  {
-    icon: Fuel,
-    name: "Diesel (AGO)",
-    specs: "EN 590 compliant · Bulk supply",
-    slug: "diesel",
-  },
-  {
-    icon: Flame,
-    name: "Petrol (PMS)",
-    specs: "Unleaded · RON 93/95",
-    slug: "petrol",
-  },
-  {
-    icon: Plane,
-    name: "Jet Fuel (Jet A-1)",
-    specs: "ASTM D1655 · Aviation grade",
-    slug: "jet-fuel",
-  },
-  {
-    icon: Droplets,
-    name: "LPG",
-    specs: "Propane/Butane blends · Bulk & cylinder",
-    slug: "lpg",
-  },
+  { icon: Fuel, name: "Diesel (AGO)", specs: "EN 590 compliant · Bulk supply", slug: "diesel" },
+  { icon: Flame, name: "Petrol (PMS)", specs: "Unleaded · RON 93/95", slug: "petrol" },
+  { icon: Plane, name: "Jet Fuel (Jet A-1)", specs: "ASTM D1655 · Aviation grade", slug: "jet-fuel" },
+  { icon: Droplets, name: "LPG", specs: "Propane/Butane blends · Bulk & cylinder", slug: "lpg" },
 ];
 
 const ProductTilesSection = () => {
@@ -44,22 +24,26 @@ const ProductTilesSection = () => {
           <h2>Energy Products & Services</h2>
         </motion.div>
 
-        {/* Desktop grid / Mobile horizontal scroll */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product, i) => {
             const Icon = product.icon;
             return (
               <motion.div
                 key={product.slug}
-                className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-200 flex flex-col"
+                className="group bg-card rounded-xl p-6 shadow-card flex flex-col cursor-default"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.4, delay: i * 0.05 }}
+                whileHover={{ y: -6, boxShadow: "var(--shadow-card-hover)" }}
               >
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <motion.div
+                  className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 transition-colors duration-200 group-hover:bg-primary/20"
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <Icon className="h-6 w-6 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
                 <p className="text-sm text-muted-foreground mb-6 flex-1">{product.specs}</p>
                 <div className="flex items-center gap-4">
@@ -69,10 +53,10 @@ const ProductTilesSection = () => {
                   </button>
                   <Link
                     to="/products"
-                    className="flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors ml-auto"
+                    className="story-link flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors ml-auto"
                   >
                     Details
-                    <ArrowRight className="h-3 w-3" />
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </div>
               </motion.div>
