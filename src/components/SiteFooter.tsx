@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/lusfam-logo.png";
+import logo from "@/assets/logo-lusfam.jpeg";
 
 const footerLinks = {
   Services: [
@@ -27,7 +27,7 @@ const SiteFooter = () => {
       <div className="container-site py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <img src={logo} alt="LusFam Energy Trading" className="h-10 w-auto brightness-0 invert" />
+            <img src={logo} alt="LusFam Energy Trading" className="h-10 w-auto" />
             <p className="text-sm text-secondary-foreground/70 leading-relaxed">
               Trusted partner for the procurement and delivery of bulk petroleum products across Southern Africa.
             </p>
