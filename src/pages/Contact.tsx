@@ -51,7 +51,7 @@ const Contact = () => {
           <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
           <div className="container-site relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left: heading */}
               <div>
                 <motion.p
