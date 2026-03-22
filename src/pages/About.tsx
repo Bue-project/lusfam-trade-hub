@@ -43,7 +43,7 @@ const About = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-20">
           {/* Dot-grid SVG background */}
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
@@ -60,11 +60,11 @@ const About = () => {
           <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
           <div className="container-site relative">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-start">
               {/* Left: text */}
               <div>
                 <motion.p
-                  className="ui-label text-secondary-foreground/40 mb-4"
+                  className="ui-label text-secondary-foreground/40 mb-3"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, ease }}
@@ -72,7 +72,7 @@ const About = () => {
                   About Us
                 </motion.p>
                 <motion.h1
-                  className="text-secondary-foreground mb-6"
+                  className="text-secondary-foreground mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.5, ease }}

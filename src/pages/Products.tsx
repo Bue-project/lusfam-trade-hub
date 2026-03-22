@@ -39,7 +39,7 @@ const ProductsPage = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-24">
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground pt-14 pb-10 lg:pt-20 lg:pb-14">
           {/* Dot-grid SVG background */}
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
@@ -61,7 +61,7 @@ const ProductsPage = () => {
           <div className="container-site relative">
             <div className="max-w-3xl">
               <motion.div
-                className="ui-label text-secondary-foreground/40 mb-4"
+                className="ui-label text-secondary-foreground/40 mb-3"
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, ease }}
@@ -69,7 +69,7 @@ const ProductsPage = () => {
                 Products & Services
               </motion.div>
               <motion.h1
-                className="text-secondary-foreground mb-4"
+                className="text-secondary-foreground mb-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5, ease }}
@@ -77,7 +77,7 @@ const ProductsPage = () => {
                 Energy Products
               </motion.h1>
               <motion.p
-                className="text-secondary-foreground/65 text-lg leading-relaxed mb-8"
+                className="text-secondary-foreground/65 text-lg leading-relaxed mb-6"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4, ease }}
