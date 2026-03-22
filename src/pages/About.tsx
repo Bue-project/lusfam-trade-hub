@@ -108,7 +108,7 @@ const About = () => {
                       whileHover={{ backgroundColor: "rgba(255,255,255,0.12)", scale: 1.02 }}
                     >
                       <div className="h-9 w-9 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                        <Icon className="h-4.5 w-4.5 text-primary" />
+                        <Icon className="h-4 w-4 text-primary" />
                       </div>
                       <p className="text-sm font-semibold text-secondary-foreground mb-1">{badge.label}</p>
                       <p className="text-xs text-secondary-foreground/55 leading-relaxed">{badge.desc}</p>

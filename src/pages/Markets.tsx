@@ -57,7 +57,7 @@ const MarketsPage = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-22">
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-24">
           {/* Dot-grid SVG background */}
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
