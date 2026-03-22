@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-lusfam.jpeg";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Markets", href: "/markets" },
   { label: "About", href: "/about" },
