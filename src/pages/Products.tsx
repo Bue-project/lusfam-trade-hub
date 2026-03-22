@@ -7,6 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import heroIndustry from "@/assets/hero-industry.jpg";
+import heroRefinery from "@/assets/hero-refinery.jpg";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -143,8 +144,8 @@ const ProductsPage = () => {
                 transition={{ delay: 0.3, duration: 0.6, ease }}
               >
                 <img
-                  src={heroIndustry}
-                  alt="Petroleum storage and distribution facility"
+                  src={heroRefinery}
+                  alt="Petroleum refinery and processing facility"
                   className="w-full h-full object-cover object-center scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tl from-secondary/60 via-transparent to-transparent" />
