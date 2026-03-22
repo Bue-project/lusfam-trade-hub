@@ -5,6 +5,10 @@ import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import { Users, Target, Shield, Award, Globe, Package, Headphones } from "lucide-react";
+import heroIndustry from "@/assets/hero-industry.jpg";
+import operationsStrip from "@/assets/operations-strip.jpg";
+import directorAbsalom from "@/assets/director-absalom.png";
+import directorAgnes from "@/assets/director-agnes.png";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -20,11 +24,13 @@ const leadership = [
     name: "Absalom Lusuwi",
     role: "Director",
     bio: "Absalom leads LusFam Energy Trading with a focus on building international partnerships and supporting petroleum supply initiatives into emerging Southern African markets. His strategic vision drives the company's growth and expanding partner network.",
+    photo: directorAbsalom,
   },
   {
     name: "Agnes Lusuwi",
     role: "Director",
     bio: "Agnes manages the administrative operations of LusFam Energy Trading, ensuring that all processes run smoothly. Her attention to operational detail supports the company's commitment to professional and reliable service delivery.",
+    photo: directorAgnes,
   },
 ];
 
@@ -44,9 +50,18 @@ const About = () => {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+          {/* Background photo */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={heroIndustry}
+              alt="Petroleum terminal facility"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-secondary/80" />
+          </div>
           {/* Dot-grid SVG background */}
           <svg
-            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none z-[1]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
@@ -57,9 +72,9 @@ const About = () => {
             <rect width="100%" height="100%" fill="url(#about-dots)" />
           </svg>
           {/* Radial glow on left */}
-          <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none z-[1]" />
 
-          <div className="container-site relative">
+          <div className="container-site relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left: text */}
               <div>
@@ -139,6 +154,31 @@ const About = () => {
           </div>
         </section>
 
+        {/* Operations visual strip */}
+        <div className="relative h-56 lg:h-72 overflow-hidden">
+          <motion.img
+            src={operationsStrip}
+            alt="Energy infrastructure operations aerial view"
+            className="w-full h-full object-cover object-center"
+            initial={{ scale: 1.05 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/60 via-secondary/30 to-secondary/60" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.p
+              className="text-white/90 text-xl lg:text-2xl font-semibold text-center px-6 drop-shadow-lg"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease }}
+            >
+              Infrastructure built for scale across Southern Africa
+            </motion.p>
+          </div>
+        </div>
+
         {/* Leadership */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <div className="container-site">
@@ -146,16 +186,27 @@ const About = () => {
             <h2 className="text-3xl font-bold text-foreground mb-12">Meet the Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {leadership.map((person) => (
-                <div key={person.name} className="flex flex-col sm:flex-row gap-6">
-                  <div className="h-32 w-32 shrink-0 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Users className="h-12 w-12 text-primary/40" />
+                <motion.div
+                  key={person.name}
+                  className="flex flex-col sm:flex-row gap-6"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, ease }}
+                >
+                  <div className="h-32 w-32 shrink-0 rounded-2xl overflow-hidden bg-primary/10">
+                    <img
+                      src={person.photo}
+                      alt={`${person.name}, ${person.role}`}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold text-foreground">{person.name}</h3>
                     <p className="text-sm font-medium text-accent">{person.role}</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">{person.bio}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

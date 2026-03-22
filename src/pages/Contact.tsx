@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import heroIndustry from "@/assets/hero-industry.jpg";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -35,9 +36,18 @@ const Contact = () => {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+          {/* Background photo */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={heroIndustry}
+              alt="Petroleum terminal facility"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-secondary/80" />
+          </div>
           {/* Dot-grid SVG background */}
           <svg
-            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none z-[1]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
@@ -48,9 +58,9 @@ const Contact = () => {
             <rect width="100%" height="100%" fill="url(#contact-dots)" />
           </svg>
           {/* Radial glow */}
-          <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl pointer-events-none z-[1]" />
 
-          <div className="container-site relative">
+          <div className="container-site relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left: heading */}
               <div>

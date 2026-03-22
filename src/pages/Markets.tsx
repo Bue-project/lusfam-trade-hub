@@ -6,6 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
+import heroIndustry from "@/assets/hero-industry.jpg";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -58,9 +59,18 @@ const MarketsPage = () => {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-24">
+          {/* Background photo */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={heroIndustry}
+              alt="Petroleum terminal facility"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-secondary/80" />
+          </div>
           {/* Dot-grid SVG background */}
           <svg
-            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none z-[1]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
@@ -71,10 +81,10 @@ const MarketsPage = () => {
             <rect width="100%" height="100%" fill="url(#markets-dots)" />
           </svg>
           {/* Glow accents */}
-          <div className="absolute -right-32 top-0 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-          <div className="absolute left-1/2 -bottom-24 w-64 h-64 rounded-full bg-primary/5 blur-2xl pointer-events-none" />
+          <div className="absolute -right-32 top-0 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none z-[1]" />
+          <div className="absolute left-1/2 -bottom-24 w-64 h-64 rounded-full bg-primary/5 blur-2xl pointer-events-none z-[1]" />
 
-          <div className="container-site relative">
+          <div className="container-site relative z-10">
             <div className="max-w-3xl">
               <motion.div
                 className="ui-label text-secondary-foreground/40 mb-4"
