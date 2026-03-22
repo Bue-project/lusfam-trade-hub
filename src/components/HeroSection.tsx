@@ -16,92 +16,107 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   const wordVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.3 + i * 0.12, duration: 0.5, ease: easeSmooth },
+      transition: { delay: 0.2 + i * 0.1, duration: 0.55, ease: easeSmooth },
     }),
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden">
-      <div className="container-site py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <section ref={sectionRef} className="relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center">
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0 z-0">
+        <motion.img
+          src={heroImage}
+          alt="Petroleum tanker terminal facility"
+          className="w-full h-full object-cover"
+          style={{ y: imageY }}
+          initial={{ scale: 1.04 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.2, ease: easeSmooth }}
+        />
+        {/* Overlay: strong on left for text legibility, fades out right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/55 to-secondary/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent" />
+      </div>
+
+      <div className="relative z-10 container-site py-20 lg:py-28 w-full">
+        <div className="max-w-2xl">
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ease: easeSmooth, duration: 0.5 }}
+            className="ui-label text-primary mb-5"
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: easeSmooth }}
           >
-            <div className="ui-label text-primary">Energy Trading</div>
-            <h1 className="text-foreground">
-              {["Fueling", "Southern", "Africa."].map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="inline-block mr-[0.3em]"
-                  custom={i}
-                  initial="hidden"
-                  animate="visible"
-                  variants={wordVariants}
-                >
-                  {word}
-                </motion.span>
-              ))}
-              <br />
-              <motion.span
-                className="text-primary inline-block"
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6, ease: easeSmooth }}
-              >
-                Reliably.
-              </motion.span>
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              LusFam Energy Trading is a trusted partner for the procurement
-              and delivery of bulk petroleum products across Zimbabwe, Zambia,
-              Botswana, Malawi, and Mozambique.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <Button
-                  size="lg"
-                  onClick={onRequestQuote}
-                  className="relative overflow-hidden shadow-[0_0_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] transition-shadow duration-300"
-                >
-                  Request a Quote
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button size="lg" variant="secondary" asChild>
-                  <a href="/products">View Products</a>
-                </Button>
-              </motion.div>
-            </div>
+            Energy Trading
           </motion.div>
 
-          <motion.div
-            className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[480px]"
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ ease: easeSmooth, duration: 0.6, delay: 0.1 }}
+          <h1 className="text-white mb-6">
+            {["Fueling", "Southern", "Africa."].map((word, i) => (
+              <motion.span
+                key={word}
+                className="inline-block mr-[0.25em]"
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={wordVariants}
+              >
+                {word}
+              </motion.span>
+            ))}
+            <br />
+            <motion.span
+              className="text-primary inline-block"
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.62, duration: 0.6, ease: easeSmooth }}
+            >
+              Reliably.
+            </motion.span>
+          </h1>
+
+          <motion.p
+            className="text-white/75 text-lg leading-relaxed mb-8 max-w-xl"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.5, ease: easeSmooth }}
           >
-            <motion.img
-              src={heroImage}
-              alt="Petroleum tanker terminal facility"
-              className="w-full h-full object-cover"
-              style={{ y: imageY }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+            LusFam Energy Trading is a trusted partner for the procurement
+            and delivery of bulk petroleum products across Zimbabwe, Zambia,
+            Botswana, Malawi, and Mozambique.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.68, duration: 0.45, ease: easeSmooth }}
+          >
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Button
+                size="lg"
+                onClick={onRequestQuote}
+                className="shadow-[0_0_24px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_36px_hsl(var(--primary)/0.6)] transition-shadow duration-300"
+              >
+                Request a Quote
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+                asChild
+              >
+                <a href="/products">View Products</a>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </div>

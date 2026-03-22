@@ -13,10 +13,10 @@ import { useToast } from "@/hooks/use-toast";
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const contactInfo = [
-  { icon: MapPin, label: "Office", value: "Harare, Zimbabwe" },
-  { icon: Phone, label: "Phone", value: "+263 77 354 0198" },
-  { icon: Mail, label: "Email", value: "info@lusfamenergy.com" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+263 77 123 4567", href: "https://wa.me/263773540198" },
+  { icon: MapPin, label: "Office", value: "Harare, Zimbabwe", href: undefined },
+  { icon: Phone, label: "Phone", value: "+263 77 354 0198", href: "tel:+263773540198" },
+  { icon: Mail, label: "Email", value: "info@lusfamenergy.com", href: "mailto:info@lusfamenergy.com" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+263 77 354 0198", href: "https://wa.me/263773540198" },
 ];
 
 const Contact = () => {
@@ -34,32 +34,89 @@ const Contact = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-20 lg:py-28">
-          <div className="container-site">
-            <motion.p 
-              className="ui-label text-primary-foreground/60 mb-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, ease }}
-            >
-              Contact
-            </motion.p>
-            <motion.h1 
-              className="text-4xl lg:text-5xl font-bold leading-tight max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5, ease }}
-            >
-              Get in Touch
-            </motion.h1>
-            <motion.p 
-              className="mt-6 text-lg text-primary-foreground/70 max-w-xl leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.4, ease }}
-            >
-              Whether you need a quote, have a question, or want to explore a partnership — our trade desk is ready to help.
-            </motion.p>
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+          {/* Dot-grid SVG background */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern id="contact-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#contact-dots)" />
+          </svg>
+          {/* Radial glow */}
+          <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+
+          <div className="container-site relative">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left: heading */}
+              <div>
+                <motion.p
+                  className="ui-label text-secondary-foreground/40 mb-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, ease }}
+                >
+                  Contact
+                </motion.p>
+                <motion.h1
+                  className="text-secondary-foreground mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.5, ease }}
+                >
+                  Get in Touch
+                </motion.h1>
+                <motion.p
+                  className="text-secondary-foreground/65 text-lg leading-relaxed"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.4, ease }}
+                >
+                  Whether you need a quote, have a question, or want to explore a partnership — our trade desk is ready to help.
+                </motion.p>
+              </div>
+
+              {/* Right: contact info cards */}
+              <motion.div
+                className="space-y-3"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.25, duration: 0.55, ease }}
+              >
+                {contactInfo.map((item, i) => {
+                  const Icon = item.icon;
+                  const inner = (
+                    <motion.div
+                      key={item.label}
+                      className="flex items-center gap-4 bg-white/8 border border-white/12 rounded-xl px-5 py-4 backdrop-blur-sm"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + i * 0.07, duration: 0.4, ease }}
+                      whileHover={{ backgroundColor: "rgba(255,255,255,0.13)" }}
+                    >
+                      <div className="h-9 w-9 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                        <Icon className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-secondary-foreground/45 font-medium uppercase tracking-wider">{item.label}</p>
+                        <p className="text-sm font-semibold text-secondary-foreground mt-0.5">{item.value}</p>
+                      </div>
+                    </motion.div>
+                  );
+                  return item.href ? (
+                    <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="block">
+                      {inner}
+                    </a>
+                  ) : (
+                    <div key={item.label}>{inner}</div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -109,7 +166,7 @@ const Contact = () => {
                     <div>
                       <p className="text-sm text-muted-foreground">{item.label}</p>
                       {item.href ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+                        <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
                           {item.value}
                         </a>
                       ) : (

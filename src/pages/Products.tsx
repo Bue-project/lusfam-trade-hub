@@ -38,34 +38,96 @@ const ProductsPage = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
-        <section className="section-spacing bg-gradient-to-b from-primary/5 to-transparent">
-          <div className="container-site">
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ease, duration: 0.4 }}
-            >
-              <motion.div 
-                className="ui-label text-primary mb-3"
-                initial={{ opacity: 0, x: -20 }}
+        {/* Hero */}
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-22">
+          {/* Dot-grid SVG background */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern id="products-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#products-dots)" />
+          </svg>
+          {/* Diagonal accent line */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+            <div className="absolute -left-24 -bottom-24 w-64 h-64 rounded-full bg-primary/5 blur-2xl" />
+          </div>
+
+          <div className="container-site relative">
+            <div className="max-w-3xl">
+              <motion.div
+                className="ui-label text-secondary-foreground/40 mb-4"
+                initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.4, ease }}
+                transition={{ duration: 0.4, ease }}
               >
                 Products & Services
               </motion.div>
               <motion.h1
+                className="text-secondary-foreground mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5, ease }}
+                transition={{ delay: 0.1, duration: 0.5, ease }}
               >
                 Energy Products
               </motion.h1>
-              <p className="text-muted-foreground text-lg mt-3">
+              <motion.p
+                className="text-secondary-foreground/65 text-lg leading-relaxed mb-8"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.4, ease }}
+              >
                 Browse our full range of petroleum products available for bulk procurement across Southern Africa.
-              </p>
-            </motion.div>
+              </motion.p>
 
+              {/* Category pills — clickable filters inline in hero */}
+              <motion.div
+                className="flex flex-wrap gap-2"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease }}
+              >
+                {categories.filter(c => c !== "All").map((cat, i) => (
+                  <motion.button
+                    key={cat}
+                    onClick={() => setActiveCategory(activeCategory === cat ? "All" : cat)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
+                      activeCategory === cat
+                        ? "bg-primary text-primary-foreground border-primary shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
+                        : "bg-white/8 text-secondary-foreground/75 border-white/15 hover:bg-white/14 hover:border-white/25"
+                    }`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.35 + i * 0.05, duration: 0.3, ease }}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                  >
+                    {cat}
+                  </motion.button>
+                ))}
+                {activeCategory !== "All" && (
+                  <motion.button
+                    onClick={() => setActiveCategory("All")}
+                    className="px-4 py-1.5 rounded-full text-sm font-medium border border-white/10 text-secondary-foreground/45 hover:text-secondary-foreground/70 transition-colors"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                  >
+                    Clear
+                  </motion.button>
+                )}
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Product content */}
+        <section className="section-spacing">
+          <div className="container-site">
             <div className="lg:grid lg:grid-cols-[240px_1fr_280px] gap-8">
               {/* Left filter nav */}
               <aside className="hidden lg:block">

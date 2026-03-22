@@ -56,39 +56,86 @@ const MarketsPage = () => {
     <div className="min-h-screen flex flex-col">
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
-        <section className="section-spacing bg-gradient-to-b from-primary/5 to-transparent">
-          <div className="container-site">
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ease, duration: 0.4 }}
-            >
-              <motion.div 
-                className="ui-label text-primary mb-3"
-                initial={{ opacity: 0, x: -20 }}
+        {/* Hero */}
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-22">
+          {/* Dot-grid SVG background */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern id="markets-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#markets-dots)" />
+          </svg>
+          {/* Glow accents */}
+          <div className="absolute -right-32 top-0 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          <div className="absolute left-1/2 -bottom-24 w-64 h-64 rounded-full bg-primary/5 blur-2xl pointer-events-none" />
+
+          <div className="container-site relative">
+            <div className="max-w-3xl">
+              <motion.div
+                className="ui-label text-secondary-foreground/40 mb-4"
+                initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.4, ease }}
+                transition={{ duration: 0.4, ease }}
               >
                 Coverage
               </motion.div>
               <motion.h1
+                className="text-secondary-foreground mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5, ease }}
+                transition={{ delay: 0.1, duration: 0.5, ease }}
               >
                 Markets & Operations
               </motion.h1>
-              <motion.p 
-                className="text-muted-foreground text-lg mt-3"
+              <motion.p
+                className="text-secondary-foreground/65 text-lg leading-relaxed mb-8"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4, ease }}
+                transition={{ delay: 0.2, duration: 0.4, ease }}
               >
                 Operating across five Southern African markets with established logistics corridors and port access.
               </motion.p>
-            </motion.div>
 
+              {/* Country chips */}
+              <motion.div
+                className="flex flex-wrap gap-2"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.4, ease }}
+              >
+                {markets.map((m, i) => (
+                  <motion.button
+                    key={m.country}
+                    onMouseEnter={() => setActiveMarket(m.country)}
+                    onMouseLeave={() => setActiveMarket(null)}
+                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
+                      activeMarket === m.country
+                        ? "bg-primary text-primary-foreground border-primary shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
+                        : "bg-white/8 text-secondary-foreground/75 border-white/15 hover:bg-white/14 hover:border-white/25"
+                    }`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.35 + i * 0.06, duration: 0.3, ease }}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                  >
+                    <MapPin className="h-3 w-3" />
+                    {m.country}
+                  </motion.button>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Map + list content */}
+        <section className="section-spacing">
+          <div className="container-site">
             {/* Overlay toggle */}
             <div className="flex gap-2 mb-8">
               <button

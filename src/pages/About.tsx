@@ -4,7 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import { Users, Target, Shield, Award } from "lucide-react";
+import { Users, Target, Shield, Award, Globe, Package, Headphones } from "lucide-react";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -28,6 +28,13 @@ const leadership = [
   },
 ];
 
+const heroBadges = [
+  { icon: Globe, label: "5 Active Markets", desc: "Zimbabwe, Zambia, Botswana, Malawi & Mozambique" },
+  { icon: Package, label: "Bulk Petroleum", desc: "Diesel, Petrol, Jet A-1, LPG & Lubricants" },
+  { icon: Shield, label: "Fully Compliant", desc: "Regulated & licensed across all operating markets" },
+  { icon: Headphones, label: "Trade Desk", desc: "Dedicated support for all procurement enquiries" },
+];
+
 const About = () => {
   const [rfqOpen, setRfqOpen] = useState(false);
 
@@ -36,32 +43,80 @@ const About = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-20 lg:py-28">
-          <div className="container-site">
-            <motion.p 
-              className="ui-label text-primary-foreground/60 mb-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, ease }}
-            >
-              About Us
-            </motion.p>
-            <motion.h1 
-              className="text-4xl lg:text-5xl font-bold leading-tight max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5, ease }}
-            >
-              Powering Southern Africa's Energy Future
-            </motion.h1>
-            <motion.p 
-              className="mt-6 text-lg text-primary-foreground/70 max-w-xl leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.4, ease }}
-            >
-              LusFam Energy Trading — a division of LusFam Trust Investments (Pvt) Ltd — is a trusted procurement and delivery partner for bulk petroleum products across the region.
-            </motion.p>
+        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+          {/* Dot-grid SVG background */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern id="about-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#about-dots)" />
+          </svg>
+          {/* Radial glow on left */}
+          <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+
+          <div className="container-site relative">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left: text */}
+              <div>
+                <motion.p
+                  className="ui-label text-secondary-foreground/40 mb-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, ease }}
+                >
+                  About Us
+                </motion.p>
+                <motion.h1
+                  className="text-secondary-foreground mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.5, ease }}
+                >
+                  Powering Southern Africa's Energy Future
+                </motion.h1>
+                <motion.p
+                  className="text-secondary-foreground/65 text-lg leading-relaxed"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.4, ease }}
+                >
+                  LusFam Energy Trading — a division of LusFam Trust Investments (Pvt) Ltd — is a trusted procurement and delivery partner for bulk petroleum products across the region.
+                </motion.p>
+              </div>
+
+              {/* Right: badge cluster */}
+              <motion.div
+                className="grid grid-cols-2 gap-4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.25, duration: 0.55, ease }}
+              >
+                {heroBadges.map((badge, i) => {
+                  const Icon = badge.icon;
+                  return (
+                    <motion.div
+                      key={badge.label}
+                      className="bg-white/8 border border-white/12 rounded-2xl p-5 backdrop-blur-sm"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + i * 0.07, duration: 0.4, ease }}
+                      whileHover={{ backgroundColor: "rgba(255,255,255,0.12)", scale: 1.02 }}
+                    >
+                      <div className="h-9 w-9 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                        <Icon className="h-4.5 w-4.5 text-primary" />
+                      </div>
+                      <p className="text-sm font-semibold text-secondary-foreground mb-1">{badge.label}</p>
+                      <p className="text-xs text-secondary-foreground/55 leading-relaxed">{badge.desc}</p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
         </section>
 
