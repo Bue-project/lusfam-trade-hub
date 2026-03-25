@@ -1,19 +1,36 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LusFam Energy Trading | Bulk Petroleum Products Across Southern Africa</title>
-    <meta name="description" content="Trusted partner for procurement and delivery of bulk petroleum products across Zimbabwe, Zambia, Botswana, Malawi, and Mozambique." />
-    <meta name="author" content="LusFam Energy Trading" />
-    <meta property="og:title" content="LusFam Energy Trading" />
-    <meta property="og:description" content="Bulk petroleum products across Southern Africa. Diesel, Petrol, Jet Fuel, LPG." />
-    <meta property="og:type" content="website" />
+import { useState } from "react";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
+import WhoWeAreSection from "@/components/WhoWeAreSection";
+import StatsSection from "@/components/StatsSection";
+import ProductTilesSection from "@/components/ProductTilesSection";
+import MapPreviewSection from "@/components/MapPreviewSection";
+import TransactionFlowSection from "@/components/TransactionFlowSection";
+import RFQModal from "@/components/RFQModal";
+import WhatsAppFAB from "@/components/WhatsAppFAB";
 
-  </head>
+const Index = () => {
+  const [rfqOpen, setRfqOpen] = useState(false);
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+  return (
+    <div className="min-h-screen flex flex-col">
+      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <main className="flex-1">
+        <HeroSection onRequestQuote={() => setRfqOpen(true)} />
+        <TrustBar />
+        <WhoWeAreSection />
+        <StatsSection />
+        <ProductTilesSection />
+        <MapPreviewSection />
+        <TransactionFlowSection />
+      </main>
+      <SiteFooter />
+      <WhatsAppFAB />
+      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
+    </div>
+  );
+};
+
+export default Index;
