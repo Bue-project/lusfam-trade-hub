@@ -243,7 +243,7 @@ const MarketsPage = () => {
                 </MapContainer>
               </motion.div>
 
-              {/* Market list */}}
+              {/* Market list */}
               <div className="space-y-4">
                 {markets.map((market, i) => (
                   <motion.div
