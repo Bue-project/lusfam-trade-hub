@@ -28,7 +28,10 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center"
+    >
       {/* Full-bleed background image */}
       <div className="absolute inset-0 z-0">
         <motion.img
@@ -53,11 +56,11 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45, ease: easeSmooth }}
           >
-            Energy Trading
+            Petroleum Facilitation · Southern Africa
           </motion.div>
 
           <h1 className="text-white mb-6">
-            {["Fueling", "Southern", "Africa."].map((word, i) => (
+            {["Bulk", "Petroleum.", "Delivered."].map((word, i) => (
               <motion.span
                 key={word}
                 className="inline-block mr-[0.25em]"
@@ -86,9 +89,10 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.5, ease: easeSmooth }}
           >
-            LusFam Energy Trading is a trusted partner for the procurement
-            and delivery of bulk petroleum products across Zimbabwe, Zambia,
-            Botswana, Malawi, and Mozambique.
+            LusFam Energy Trading is a legalized petroleum facilitator
+            specialising in Jet Fuel, EN590 Diesel, Petrol, and LPG —
+            delivered under FOB TTT and FOB TTV terms across Zimbabwe,
+            Zambia, Botswana, Malawi, and Mozambique.
           </motion.p>
 
           <motion.div
@@ -97,7 +101,10 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.68, duration: 0.45, ease: easeSmooth }}
           >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Button
                 size="lg"
                 onClick={onRequestQuote}
@@ -107,7 +114,10 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Button
                 size="lg"
                 variant="outline"
