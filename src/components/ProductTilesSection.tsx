@@ -9,54 +9,53 @@ const products = [
   { icon: Droplets, name: "LPG", specs: "Propane/Butane blends · Bulk & cylinder", slug: "lpg" },
 ];
 
+const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
+
 const ProductTilesSection = () => {
   return (
-    <section className="section-spacing">
+    <section className="section-spacing section-mid">
       <div className="container-site">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.4 }}
+          transition={{ ease, duration: 0.4 }}
         >
-          <div className="ui-label text-primary mb-3">Our Products</div>
-          <h2>Energy Products & Services</h2>
+          <div className="ui-label mb-3">Our Products</div>
+          <h2 className="text-white">Energy Products & Services</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {products.map((product, i) => {
             const Icon = product.icon;
             return (
               <motion.div
                 key={product.slug}
-                className="group bg-card rounded-xl p-6 shadow-card flex flex-col cursor-default"
-                initial={{ opacity: 0, y: 8 }}
+                className="group glass-card rounded-xl p-6 flex flex-col cursor-default"
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.4, delay: i * 0.05 }}
-                whileHover={{ y: -6, boxShadow: "var(--shadow-card-hover)" }}
+                transition={{ ease, duration: 0.4, delay: i * 0.06 }}
               >
-                <motion.div
-                  className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 transition-colors duration-200 group-hover:bg-primary/20"
-                  whileHover={{ scale: 1.1, rotate: 3 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Icon className="h-6 w-6 text-primary" />
-                </motion.div>
-                <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
-                <p className="text-sm text-muted-foreground mb-6 flex-1">{product.specs}</p>
+                <div className="h-12 w-12 rounded-lg bg-[#D4A017]/15 group-hover:bg-[#D4A017]/25 flex items-center justify-center mb-4 transition-colors duration-200">
+                  <Icon className="h-6 w-6 text-[#D4A017]" />
+                </div>
+                <h3 className="text-base font-semibold text-white mb-1">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-white/50 mb-6 flex-1">{product.specs}</p>
                 <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-1.5 text-xs font-medium text-primary hover:brightness-110 transition-all">
+                  <button className="flex items-center gap-1.5 text-xs font-medium text-[#D4A017] hover:brightness-125 transition-all">
                     <Download className="h-3.5 w-3.5" />
                     Spec Sheet
                   </button>
                   <Link
                     to="/products"
-                    className="story-link flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors ml-auto"
+                    className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white/80 transition-colors ml-auto"
                   >
                     Details
-                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
               </motion.div>
