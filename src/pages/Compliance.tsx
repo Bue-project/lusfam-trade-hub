@@ -65,14 +65,15 @@ const Compliance = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+        <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 z-0">
             <img
               src={heroIndustry}
               alt="Petroleum terminal facility"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-secondary/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060D18]/95 via-[#060D18]/70 to-[#060D18]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060D18] via-transparent to-transparent" />
           </div>
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none z-[1]"
@@ -97,7 +98,7 @@ const Compliance = () => {
           <div className="container-site relative z-10">
             <div className="max-w-3xl">
               <motion.p
-                className="ui-label text-secondary-foreground/40 mb-4"
+                className="ui-label text-[#D4A017] mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, ease }}
@@ -105,7 +106,7 @@ const Compliance = () => {
                 Compliance
               </motion.p>
               <motion.h1
-                className="text-secondary-foreground mb-6"
+                className="text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5, ease }}
@@ -113,7 +114,7 @@ const Compliance = () => {
                 Standards & Compliance
               </motion.h1>
               <motion.p
-                className="text-secondary-foreground/65 text-lg leading-relaxed"
+                className="text-white/70 text-lg leading-relaxed"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4, ease }}

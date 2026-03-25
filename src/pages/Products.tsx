@@ -41,7 +41,7 @@ const ProductsPage = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-24">
+        <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
           {/* Background photo */}
           <div className="absolute inset-0 z-0">
             <img
@@ -49,7 +49,8 @@ const ProductsPage = () => {
               alt="Petroleum terminal facility"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-secondary/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060D18]/95 via-[#060D18]/70 to-[#060D18]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060D18] via-transparent to-transparent" />
           </div>
           {/* Dot-grid SVG background */}
           <svg
@@ -74,7 +75,7 @@ const ProductsPage = () => {
               {/* Left: text + filters */}
               <div>
                 <motion.div
-                  className="ui-label text-secondary-foreground/40 mb-4"
+                  className="ui-label text-[#D4A017] mb-4"
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, ease }}
@@ -82,7 +83,7 @@ const ProductsPage = () => {
                   Products & Services
                 </motion.div>
                 <motion.h1
-                  className="text-secondary-foreground mb-4"
+                  className="text-white mb-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.5, ease }}
@@ -90,7 +91,7 @@ const ProductsPage = () => {
                   Energy Products
                 </motion.h1>
                 <motion.p
-                  className="text-secondary-foreground/65 text-lg leading-relaxed mb-8"
+                  className="text-white/70 text-lg leading-relaxed mb-8"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4, ease }}
@@ -112,7 +113,7 @@ const ProductsPage = () => {
                       className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
                         activeCategory === cat
                           ? "bg-primary text-primary-foreground border-primary shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
-                          : "bg-white/8 text-secondary-foreground/75 border-white/15 hover:bg-white/14 hover:border-white/25"
+                          : "bg-white/8 text-white/75 border-white/15 hover:bg-white/14 hover:border-white/25"
                       }`}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}

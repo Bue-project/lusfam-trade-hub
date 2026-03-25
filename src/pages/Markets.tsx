@@ -7,12 +7,15 @@ import SiteFooter from "@/components/SiteFooter";
 import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import heroIndustry from "@/assets/hero-industry.jpg";
+import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
+import L from "leaflet";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const markets = [
   {
     country: "Zimbabwe",
+    coords: [-19.0, 29.8] as [number, number],
     cities: "Harare, Bulawayo, Mutare",
     highlights: ["Beira Corridor access", "Fuel import terminal", "Strategic depot network"],
     ports: "Via Beira & Maputo ports",
@@ -20,6 +23,7 @@ const markets = [
   },
   {
     country: "Zambia",
+    coords: [-13.1, 27.8] as [number, number],
     cities: "Lusaka, Kitwe, Ndola",
     highlights: ["Copperbelt supply chain", "Dar-es-Salaam corridor", "Cross-border logistics"],
     ports: "Via Dar-es-Salaam & Beira",
@@ -27,6 +31,7 @@ const markets = [
   },
   {
     country: "Botswana",
+    coords: [-22.3, 24.7] as [number, number],
     cities: "Gaborone, Francistown",
     highlights: ["Trans-Kalahari corridor", "Mining sector supply", "Regional distribution"],
     ports: "Via Durban & Maputo",
@@ -34,6 +39,7 @@ const markets = [
   },
   {
     country: "Malawi",
+    coords: [-13.2, 34.3] as [number, number],
     cities: "Lilongwe, Blantyre",
     highlights: ["Nacala Corridor", "Agricultural sector supply", "Lake Malawi distribution"],
     ports: "Via Nacala & Beira",
@@ -41,11 +47,34 @@ const markets = [
   },
   {
     country: "Mozambique",
+    coords: [-18.7, 35.5] as [number, number],
     cities: "Maputo, Beira, Nacala",
     highlights: ["Port operations hub", "Coastal distribution", "Pipeline infrastructure"],
     ports: "Direct port access",
     x: 72, y: 60,
   },
+];
+
+
+const goldIcon = L.divIcon({
+  className: "",
+  html: '<div style="width:14px;height:14px;border-radius:50%;background:#D4A017;border:2px solid rgba(255,255,255,0.8);box-shadow:0 0 14px #D4A01799;"></div>',
+  iconSize: [14, 14] as [number,number],
+  iconAnchor: [7, 7] as [number,number],
+  popupAnchor: [0, -10] as [number,number],
+});
+const goldIconHovered = L.divIcon({
+  className: "",
+  html: '<div style="width:18px;height:18px;border-radius:50%;background:#D4A017;border:2px solid #fff;box-shadow:0 0 22px #D4A017CC;"></div>',
+  iconSize: [18, 18] as [number,number],
+  iconAnchor: [9, 9] as [number,number],
+  popupAnchor: [0, -12] as [number,number],
+});
+const logisticsRoutes: [number, number][][] = [
+  [[-18.7, 35.5], [-19.0, 29.8]],
+  [[-18.7, 35.5], [-13.1, 27.8]],
+  [[-18.7, 35.5], [-13.2, 34.3]],
+  [[-19.0, 29.8], [-22.3, 24.7]],
 ];
 
 const MarketsPage = () => {
@@ -58,7 +87,7 @@ const MarketsPage = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-16 lg:py-24">
+        <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
           {/* Background photo */}
           <div className="absolute inset-0 z-0">
             <img
@@ -66,7 +95,8 @@ const MarketsPage = () => {
               alt="Petroleum terminal facility"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-secondary/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060D18]/95 via-[#060D18]/70 to-[#060D18]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060D18] via-transparent to-transparent" />
           </div>
           {/* Dot-grid SVG background */}
           <svg
@@ -87,7 +117,7 @@ const MarketsPage = () => {
           <div className="container-site relative z-10">
             <div className="max-w-3xl">
               <motion.div
-                className="ui-label text-secondary-foreground/40 mb-4"
+                className="ui-label text-[#D4A017] mb-4"
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, ease }}
@@ -95,7 +125,7 @@ const MarketsPage = () => {
                 Coverage
               </motion.div>
               <motion.h1
-                className="text-secondary-foreground mb-4"
+                className="text-white mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5, ease }}
@@ -103,7 +133,7 @@ const MarketsPage = () => {
                 Markets & Operations
               </motion.h1>
               <motion.p
-                className="text-secondary-foreground/65 text-lg leading-relaxed mb-8"
+                className="text-white/70 text-lg leading-relaxed mb-8"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4, ease }}
@@ -126,7 +156,7 @@ const MarketsPage = () => {
                     className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 ${
                       activeMarket === m.country
                         ? "bg-primary text-primary-foreground border-primary shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
-                        : "bg-white/8 text-secondary-foreground/75 border-white/15 hover:bg-white/14 hover:border-white/25"
+                        : "bg-white/8 text-white/75 border-white/15 hover:bg-white/14 hover:border-white/25"
                     }`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -144,14 +174,14 @@ const MarketsPage = () => {
         </section>
 
         {/* Map + list content */}
-        <section className="section-spacing">
+        <section className="section-deep py-24">
           <div className="container-site">
             {/* Overlay toggle */}
             <div className="flex gap-2 mb-8">
               <button
                 onClick={() => setOverlay("markets")}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  overlay === "markets" ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                  overlay === "markets" ? "bg-[#D4A017] text-[#060D18]" : "bg-white/10 text-white/70 hover:text-white"
                 }`}
               >
                 <Building2 className="h-4 w-4" />
@@ -160,7 +190,7 @@ const MarketsPage = () => {
               <button
                 onClick={() => setOverlay("logistics")}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  overlay === "logistics" ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                  overlay === "logistics" ? "bg-[#D4A017] text-[#060D18]" : "bg-white/10 text-white/70 hover:text-white"
                 }`}
               >
                 <Route className="h-4 w-4" />
@@ -169,63 +199,51 @@ const MarketsPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
-              {/* Map */}
+              {/* Real Leaflet Map */}
               <motion.div
-                className="relative bg-secondary/5 rounded-2xl aspect-square max-w-lg w-full overflow-hidden"
+                className="rounded-xl overflow-hidden border border-white/10 h-[500px] w-full"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ ease, duration: 0.5 }}
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full p-6">
-                  <path
-                    d="M35 20 L45 18 L55 20 L65 22 L75 28 L80 38 L78 48 L75 55 L72 62 L68 68 L62 72 L55 75 L48 78 L42 76 L38 72 L35 65 L32 58 L30 50 L28 42 L30 34 L32 28 Z"
-                    fill="hsl(210 79% 24% / 0.06)"
-                    stroke="hsl(210 79% 24% / 0.15)"
-                    strokeWidth="0.5"
-                  />
-                  {overlay === "logistics" && (
-                    <>
-                      <line x1="72" y1="60" x2="62" y2="58" stroke="hsl(45 78% 46% / 0.4)" strokeWidth="0.8" strokeDasharray="2" />
-                      <line x1="72" y1="60" x2="55" y2="42" stroke="hsl(45 78% 46% / 0.4)" strokeWidth="0.8" strokeDasharray="2" />
-                      <line x1="72" y1="60" x2="70" y2="44" stroke="hsl(45 78% 46% / 0.4)" strokeWidth="0.8" strokeDasharray="2" />
-                      <line x1="62" y1="58" x2="48" y2="64" stroke="hsl(45 78% 46% / 0.4)" strokeWidth="0.8" strokeDasharray="2" />
-                    </>
-                  )}
-                  {markets.map((m) => (
-                    <g
-                      key={m.country}
-                      className="cursor-pointer"
-                      onMouseEnter={() => setActiveMarket(m.country)}
-                      onMouseLeave={() => setActiveMarket(null)}
-                    >
-                      <circle
-                        cx={m.x} cy={m.y} r="5"
-                        fill={activeMarket === m.country ? "hsl(45 78% 46% / 0.3)" : "hsl(45 78% 46% / 0.15)"}
-                        className="transition-all duration-200"
-                      />
-                      <circle
-                        cx={m.x} cy={m.y} r="2.5"
-                        fill="hsl(45 78% 46%)"
-                        className={`transition-transform duration-200 ${activeMarket === m.country ? "scale-125" : ""}`}
-                        style={{ transformOrigin: `${m.x}px ${m.y}px` }}
-                      />
-                      <text
-                        x={m.x}
-                        y={m.y - 7}
-                        textAnchor="middle"
-                        fill="hsl(215 30% 18%)"
-                        fontSize="3"
-                        fontWeight="600"
-                        fontFamily="Manrope, sans-serif"
-                      >
-                        {m.country}
-                      </text>
-                    </g>
+                <MapContainer
+                  center={[-17, 29] as [number, number]}
+                  zoom={4}
+                  scrollWheelZoom={false}
+                  zoomControl={true}
+                  attributionControl={false}
+                  style={{ height: "100%", width: "100%" }}
+                >
+                  <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
+                  {overlay === "logistics" && logisticsRoutes.map((route, i) => (
+                    <Polyline
+                      key={i}
+                      positions={route}
+                      pathOptions={{ color: "#D4A017", weight: 2, opacity: 0.6, dashArray: "6 4" }}
+                    />
                   ))}
-                </svg>
+                  {markets.map((m) => (
+                    <Marker
+                      key={m.country}
+                      position={m.coords}
+                      icon={activeMarket === m.country ? goldIconHovered : goldIcon}
+                      eventHandlers={{
+                        mouseover: () => setActiveMarket(m.country),
+                        mouseout: () => setActiveMarket(null),
+                      }}
+                    >
+                      <Popup>
+                        <div style={{ padding: "2px 4px" }}>
+                          <div style={{ fontWeight: 700, color: "#D4A017", marginBottom: 2 }}>{m.country}</div>
+                          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)" }}>{m.cities}</div>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+                </MapContainer>
               </motion.div>
 
-              {/* Market list */}
+              {/* Market list */}}
               <div className="space-y-4">
                 {markets.map((market, i) => (
                   <motion.div
@@ -241,8 +259,8 @@ const MarketsPage = () => {
                     transition={{ ease, duration: 0.4, delay: i * 0.05 }}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <MapPin className="h-5 w-5 text-primary" />
+                      <div className="h-10 w-10 rounded-lg bg-[#D4A017]/15 flex items-center justify-center shrink-0">
+                        <MapPin className="h-5 w-5 text-[#D4A017]" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-base font-semibold">{market.country}</h3>
@@ -265,7 +283,7 @@ const MarketsPage = () => {
                   </motion.div>
                 ))}
 
-                <Button onClick={() => setRfqOpen(true)} className="w-full mt-4">
+                <Button onClick={() => setRfqOpen(true)} className="w-full mt-4 bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold">
                   Request a Quote
                   <ArrowRight className="h-4 w-4" />
                 </Button>

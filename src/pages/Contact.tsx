@@ -35,7 +35,7 @@ const Contact = () => {
       <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-secondary text-secondary-foreground py-20 lg:py-28">
+        <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
           {/* Background photo */}
           <div className="absolute inset-0 z-0">
             <img
@@ -43,7 +43,8 @@ const Contact = () => {
               alt="Petroleum terminal facility"
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-secondary/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#060D18]/95 via-[#060D18]/70 to-[#060D18]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060D18] via-transparent to-transparent" />
           </div>
           {/* Dot-grid SVG background */}
           <svg
@@ -65,7 +66,7 @@ const Contact = () => {
               {/* Left: heading */}
               <div>
                 <motion.p
-                  className="ui-label text-secondary-foreground/40 mb-4"
+                  className="ui-label text-[#D4A017] mb-4"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, ease }}
@@ -73,7 +74,7 @@ const Contact = () => {
                   Contact
                 </motion.p>
                 <motion.h1
-                  className="text-secondary-foreground mb-6"
+                  className="text-white mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.5, ease }}
@@ -81,7 +82,7 @@ const Contact = () => {
                   Get in Touch
                 </motion.h1>
                 <motion.p
-                  className="text-secondary-foreground/65 text-lg leading-relaxed"
+                  className="text-white/70 text-lg leading-relaxed"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4, ease }}
@@ -112,8 +113,8 @@ const Contact = () => {
                         <Icon className="h-4 w-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-xs text-secondary-foreground/45 font-medium uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-semibold text-secondary-foreground mt-0.5">{item.value}</p>
+                        <p className="text-xs text-white/45 font-medium uppercase tracking-wider">{item.label}</p>
+                        <p className="text-sm font-semibold text-white mt-0.5">{item.value}</p>
                       </div>
                     </motion.div>
                   );
