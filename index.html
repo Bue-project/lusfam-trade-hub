@@ -1,36 +1,24 @@
-import { useState } from "react";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
-import WhoWeAreSection from "@/components/WhoWeAreSection";
-import StatsSection from "@/components/StatsSection";
-import ProductTilesSection from "@/components/ProductTilesSection";
-import MapPreviewSection from "@/components/MapPreviewSection";
-import TransactionFlowSection from "@/components/TransactionFlowSection";
-import RFQModal from "@/components/RFQModal";
-import WhatsAppFAB from "@/components/WhatsAppFAB";
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LusFam Energy Trading | Bulk Petroleum Facilitation Across Southern Africa</title>
+    <meta name="description" content="LusFam Energy Trading — legalized petroleum facilitator delivering Jet Fuel, EN590 Diesel, Petrol, and LPG under FOB TTT/TTV terms across Zimbabwe, Zambia, Botswana, Malawi, and Mozambique." />
+    <meta name="keywords" content="petroleum trading Southern Africa, bulk fuel Zimbabwe, diesel EN590, jet fuel Jet A-1, LPG supply, FOB TTT, FOB TTV, petroleum facilitator, energy trading Africa" />
+    <meta name="author" content="LusFam Energy Trading" />
+    <meta property="og:title" content="LusFam Energy Trading | Bulk Petroleum Facilitation" />
+    <meta property="og:description" content="Trusted petroleum facilitator delivering Jet Fuel, Diesel, Petrol, and LPG across Southern Africa under FOB TTT and TTV terms." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lusfamenergy.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LusFam Energy Trading" />
+    <meta name="twitter:description" content="Bulk petroleum products across Southern Africa. Diesel, Petrol, Jet Fuel, LPG." />
+    <link rel="canonical" href="https://lusfamenergy.com" />
+  </head>
 
-const Index = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
-      <main className="flex-1">
-        <HeroSection onRequestQuote={() => setRfqOpen(true)} />
-        <TrustBar />
-        <WhoWeAreSection />
-        <StatsSection />
-        <ProductTilesSection />
-        <MapPreviewSection />
-        <TransactionFlowSection />
-      </main>
-      <SiteFooter />
-      <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
-    </div>
-  );
-};
-
-export default Index;
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
