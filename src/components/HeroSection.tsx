@@ -3,14 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-terminal.jpg";
+import { WA_QUOTE } from "@/lib/whatsapp";
 
 const easeSmooth: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
-interface HeroSectionProps {
-  onRequestQuote: () => void;
-}
-
-const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
+const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -110,11 +107,13 @@ const HeroSection = ({ onRequestQuote }: HeroSectionProps) => {
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Button
                 size="lg"
-                onClick={onRequestQuote}
+                asChild
                 className="bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold shadow-[0_0_28px_hsl(42_89%_45%/0.45)] hover:shadow-[0_0_40px_hsl(42_89%_45%/0.65)] transition-all duration-300"
               >
-                Request a Quote
-                <ArrowRight className="h-4 w-4" />
+                <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">
+                  Request a Quote
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>

@@ -1,42 +1,20 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, MessageCircle, ArrowRight } from "lucide-react";
 import heroIndustry from "@/assets/hero-industry.jpg";
+import { WA_QUOTE } from "@/lib/whatsapp";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
-const contactInfo = [
-  { icon: MapPin, label: "Office", value: "Harare, Zimbabwe", href: undefined },
-  { icon: Phone, label: "Phone", value: "+263 77 354 0198", href: "tel:+263773540198" },
-  { icon: Mail, label: "Email", value: "info@lusfamenergy.com", href: "mailto:info@lusfamenergy.com" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+263 77 354 0198", href: "https://wa.me/263773540198" },
-];
-
 const Contact = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    toast({ title: "Message sent", description: "We'll get back to you shortly." });
-    (e.target as HTMLFormElement).reset();
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
-          {/* Background photo */}
           <div className="absolute inset-0 z-0">
             <img
               src={heroIndustry}
@@ -46,7 +24,6 @@ const Contact = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#060D18]/95 via-[#060D18]/70 to-[#060D18]/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#060D18] via-transparent to-transparent" />
           </div>
-          {/* Dot-grid SVG background */}
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none z-[1]"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,142 +35,127 @@ const Contact = () => {
             </defs>
             <rect width="100%" height="100%" fill="url(#contact-dots)" />
           </svg>
-          {/* Radial glow */}
           <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl pointer-events-none z-[1]" />
 
           <div className="container-site relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Left: heading */}
-              <div>
-                <motion.p
-                  className="ui-label text-[#D4A017] mb-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, ease }}
-                >
-                  Contact
-                </motion.p>
-                <motion.h1
-                  className="text-white mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.5, ease }}
-                >
-                  Get in Touch
-                </motion.h1>
-                <motion.p
-                  className="text-white/70 text-lg leading-relaxed"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.4, ease }}
-                >
-                  Whether you need a quote, have a question, or want to explore a partnership — our trade desk is ready to help.
-                </motion.p>
-              </div>
-
-              {/* Right: contact info cards */}
-              <motion.div
-                className="space-y-3"
-                initial={{ opacity: 0, x: 20 }}
+            <div className="max-w-2xl">
+              <motion.p
+                className="ui-label text-[#D4A017] mb-4"
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25, duration: 0.55, ease }}
+                transition={{ duration: 0.4, ease }}
               >
-                {contactInfo.map((item, i) => {
-                  const Icon = item.icon;
-                  const inner = (
-                    <motion.div
-                      key={item.label}
-                      className="flex items-center gap-4 bg-white/8 border border-white/12 rounded-xl px-5 py-4 backdrop-blur-sm"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + i * 0.07, duration: 0.4, ease }}
-                      whileHover={{ backgroundColor: "rgba(255,255,255,0.13)" }}
-                    >
-                      <div className="h-9 w-9 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
-                        <Icon className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-white/45 font-medium uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-semibold text-white mt-0.5">{item.value}</p>
-                      </div>
-                    </motion.div>
-                  );
-                  return item.href ? (
-                    <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="block">
-                      {inner}
-                    </a>
-                  ) : (
-                    <div key={item.label}>{inner}</div>
-                  );
-                })}
-              </motion.div>
+                Contact
+              </motion.p>
+              <motion.h1
+                className="text-white mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5, ease }}
+              >
+                Get in Touch
+              </motion.h1>
+              <motion.p
+                className="text-white/70 text-lg leading-relaxed"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.4, ease }}
+              >
+                Whether you need a quote, have a question, or want to explore a partnership — our trade desk is ready to help.
+              </motion.p>
             </div>
           </div>
         </section>
 
+        {/* Contact cards */}
         <section className="py-16 lg:py-24">
-          <div className="container-site grid grid-cols-1 lg:grid-cols-5 gap-16">
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <h2 className="text-2xl font-bold text-foreground mb-8">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Full Name</label>
-                    <Input placeholder="Your name" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Company</label>
-                    <Input placeholder="Company name" />
-                  </div>
+          <div className="container-site">
+            <div className="max-w-2xl mx-auto space-y-4">
+              {/* WhatsApp — primary CTA */}
+              <motion.a
+                href={WA_QUOTE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-5 bg-[#D4A017]/10 border border-[#D4A017]/35 rounded-2xl px-6 py-5 hover:bg-[#D4A017]/18 transition-colors group"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease }}
+                whileHover={{ scale: 1.015 }}
+              >
+                <div className="h-12 w-12 rounded-xl bg-[#D4A017]/20 flex items-center justify-center shrink-0">
+                  <MessageCircle className="h-6 w-6 text-[#D4A017]" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Email</label>
-                    <Input type="email" placeholder="you@company.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Phone</label>
-                    <Input type="tel" placeholder="+263..." />
-                  </div>
+                <div className="flex-1">
+                  <p className="text-xs text-[#D4A017] font-semibold uppercase tracking-wider mb-0.5">WhatsApp — Fastest Response</p>
+                  <p className="text-base font-semibold text-white">Chat with our Trade Desk</p>
+                  <p className="text-sm text-white/55 mt-0.5">+263 77 354 0198 · Pre-filled quote request</p>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Message</label>
-                  <Textarea placeholder="How can we help?" rows={5} required />
-                </div>
-                <Button type="submit" size="lg">Send Message</Button>
-              </form>
-            </div>
+                <ArrowRight className="h-5 w-5 text-[#D4A017] shrink-0 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
 
-            {/* Contact Info */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-foreground mb-8">Contact Details</h2>
-              <div className="space-y-6">
-                {contactInfo.map((item) => (
-                  <div key={item.label} className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                      <item.icon className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
-                      {item.href ? (
-                        <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-sm font-medium text-foreground">{item.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Email */}
+              <motion.a
+                href="mailto:info@lusfamenergy.com"
+                className="flex items-center gap-5 bg-card border border-border rounded-2xl px-6 py-5 hover:bg-muted/60 transition-colors group"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.07, duration: 0.4, ease }}
+                whileHover={{ scale: 1.015 }}
+              >
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Email</p>
+                  <p className="text-base font-semibold text-foreground">info@lusfamenergy.com</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground shrink-0 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
+
+              {/* Phone */}
+              <motion.a
+                href="tel:+263773540198"
+                className="flex items-center gap-5 bg-card border border-border rounded-2xl px-6 py-5 hover:bg-muted/60 transition-colors group"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.14, duration: 0.4, ease }}
+                whileHover={{ scale: 1.015 }}
+              >
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Phone className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Phone</p>
+                  <p className="text-base font-semibold text-foreground">+263 77 354 0198</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground shrink-0 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
+
+              {/* Office */}
+              <motion.div
+                className="flex items-center gap-5 bg-card border border-border rounded-2xl px-6 py-5"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.21, duration: 0.4, ease }}
+              >
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Office</p>
+                  <p className="text-base font-semibold text-foreground">Harare, Zimbabwe</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
       </main>
       <SiteFooter />
       <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
     </div>
   );
 };

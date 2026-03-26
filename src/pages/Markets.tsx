@@ -4,8 +4,8 @@ import { MapPin, ArrowRight, Ship, Building2, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
+import { WA_QUOTE } from "@/lib/whatsapp";
 import heroIndustry from "@/assets/hero-industry.jpg";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import L from "leaflet";
@@ -78,13 +78,12 @@ const logisticsRoutes: [number, number][][] = [
 ];
 
 const MarketsPage = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
   const [activeMarket, setActiveMarket] = useState<string | null>(null);
   const [overlay, setOverlay] = useState<"markets" | "logistics">("markets");
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -283,9 +282,11 @@ const MarketsPage = () => {
                   </motion.div>
                 ))}
 
-                <Button onClick={() => setRfqOpen(true)} className="w-full mt-4 bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold">
-                  Request a Quote
-                  <ArrowRight className="h-4 w-4" />
+                <Button asChild className="w-full mt-4 bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold">
+                  <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">
+                    Request a Quote
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </Button>
               </div>
             </div>
@@ -294,7 +295,6 @@ const MarketsPage = () => {
       </main>
       <SiteFooter />
       <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
     </div>
   );
 };

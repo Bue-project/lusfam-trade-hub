@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/HeroSection";
@@ -8,17 +7,14 @@ import StatsSection from "@/components/StatsSection";
 import ProductTilesSection from "@/components/ProductTilesSection";
 import MapPreviewSection from "@/components/MapPreviewSection";
 import TransactionFlowSection from "@/components/TransactionFlowSection";
-import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 
 const Index = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <SiteHeader />
       <main className="flex-1">
-        <HeroSection onRequestQuote={() => setRfqOpen(true)} />
+        <HeroSection />
         <TrustBar />
         <WhoWeAreSection />
         <StatsSection />
@@ -28,7 +24,6 @@ const Index = () => {
       </main>
       <SiteFooter />
       <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
     </div>
   );
 };

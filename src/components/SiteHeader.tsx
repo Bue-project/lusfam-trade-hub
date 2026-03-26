@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, MessageCircle, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-lusfam.jpeg";
+import { WA_QUOTE } from "@/lib/whatsapp";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -12,11 +12,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-interface SiteHeaderProps {
-  onRequestQuote: () => void;
-}
-
-const SiteHeader = ({ onRequestQuote }: SiteHeaderProps) => {
+const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -75,13 +71,14 @@ const SiteHeader = ({ onRequestQuote }: SiteHeaderProps) => {
           >
             <MessageCircle className="h-5 w-5" />
           </a>
-          <Button
-            onClick={onRequestQuote}
-            size="default"
-            className="bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold shadow-[0_0_20px_hsl(42_89%_45%/0.35)] hover:shadow-[0_0_28px_hsl(42_89%_45%/0.55)] transition-all duration-300"
+          <a
+            href={WA_QUOTE}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center h-10 px-4 rounded-md bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] text-sm font-semibold shadow-[0_0_20px_hsl(42_89%_45%/0.35)] hover:shadow-[0_0_28px_hsl(42_89%_45%/0.55)] transition-all duration-300"
           >
             Request a Quote
-          </Button>
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -128,12 +125,15 @@ const SiteHeader = ({ onRequestQuote }: SiteHeaderProps) => {
                 WhatsApp
               </a>
             </div>
-            <Button
-              onClick={() => { onRequestQuote(); setMobileOpen(false); }}
-              className="w-full bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold"
+            <a
+              href={WA_QUOTE}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center w-full h-10 px-4 rounded-md bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] text-sm font-semibold transition-colors"
             >
               Request a Quote
-            </Button>
+            </a>
           </nav>
         </div>
       )}

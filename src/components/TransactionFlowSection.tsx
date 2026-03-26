@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FileText, CheckCircle, Truck, HandshakeIcon } from "lucide-react";
+import { WA_QUOTE } from "@/lib/whatsapp";
 
 const steps = [
   { icon: FileText, label: "Submit RFQ", description: "Send your requirements" },
@@ -44,7 +45,7 @@ const TransactionFlowSection = () => {
             return (
               <motion.div
                 key={step.label}
-                className="flex flex-col items-center text-center relative cursor-default"
+                className={`flex flex-col items-center text-center relative ${i === 0 ? "cursor-pointer" : "cursor-default"}`}
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -65,7 +66,18 @@ const TransactionFlowSection = () => {
                   <Icon className={`h-8 w-8 transition-colors duration-200 ${isHovered ? "text-primary" : "text-primary"}`} />
                 </motion.div>
                 <div className="ui-label text-primary mb-1">Step {i + 1}</div>
-                <h3 className="text-base font-semibold mb-1">{step.label}</h3>
+                {i === 0 ? (
+                  <a
+                    href={WA_QUOTE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-semibold mb-1 text-primary hover:underline"
+                  >
+                    {step.label}
+                  </a>
+                ) : (
+                  <h3 className="text-base font-semibold mb-1">{step.label}</h3>
+                )}
                 <p className="text-sm text-muted-foreground">{step.description}</p>
               </motion.div>
             );

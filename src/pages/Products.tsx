@@ -4,8 +4,8 @@ import { Fuel, Flame, Plane, Droplets, Download, ArrowRight, Search } from "luci
 import { Button } from "@/components/ui/button";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
+import { WA_QUOTE, WA_PRODUCT, WA_SPEC } from "@/lib/whatsapp";
 import heroIndustry from "@/assets/hero-industry.jpg";
 import heroRefinery from "@/assets/hero-refinery.jpg";
 
@@ -26,7 +26,6 @@ const allProducts = [
 ];
 
 const ProductsPage = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -38,7 +37,7 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -237,17 +236,24 @@ const ProductsPage = () => {
                         <div><span className="font-medium text-foreground">Origin:</span> {product.origin}</div>
                       </div>
                       <div className="flex items-center gap-3 pt-3 border-t border-border">
-                        <button className="flex items-center gap-1 text-xs font-medium text-primary hover:brightness-110 transition-all">
+                        <a
+                          href={WA_SPEC(product.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs font-medium text-primary hover:brightness-110 transition-all"
+                        >
                           <Download className="h-3.5 w-3.5" />
                           Spec Sheet
-                        </button>
-                        <button
-                          onClick={() => setRfqOpen(true)}
+                        </a>
+                        <a
+                          href={WA_PRODUCT(product.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors ml-auto"
                         >
                           Request Quote
                           <ArrowRight className="h-3 w-3" />
-                        </button>
+                        </a>
                       </div>
                     </motion.div>
                   );
@@ -261,9 +267,11 @@ const ProductsPage = () => {
                   <p className="text-sm text-muted-foreground">
                     Need a quote? Start your request directly from here.
                   </p>
-                  <Button onClick={() => setRfqOpen(true)} className="w-full">
-                    Request a Quote
-                    <ArrowRight className="h-4 w-4" />
+                  <Button asChild className="w-full">
+                    <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">
+                      Request a Quote
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
                   </Button>
                   <div className="text-xs text-muted-foreground text-center">
                     Average response time: 48 hours
@@ -276,7 +284,6 @@ const ProductsPage = () => {
       </main>
       <SiteFooter />
       <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
     </div>
   );
 };

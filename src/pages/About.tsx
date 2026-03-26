@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import RFQModal from "@/components/RFQModal";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import { Users, Target, Shield, Award, Globe, Package, Headphones } from "lucide-react";
+import { Users, Target, Shield, Award, Globe, Package, Headphones, MessageCircle, ArrowRight } from "lucide-react";
+import { WA_QUOTE } from "@/lib/whatsapp";
 import heroIndustry from "@/assets/hero-industry.jpg";
 import operationsStrip from "@/assets/operations-strip.jpg";
 import directorAbsalom from "@/assets/director-absalom.png";
@@ -42,11 +41,9 @@ const heroBadges = [
 ];
 
 const About = () => {
-  const [rfqOpen, setRfqOpen] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col">
-      <SiteHeader onRequestQuote={() => setRfqOpen(true)} />
+      <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#060D18] text-white pt-32 pb-20 lg:pt-40 lg:pb-28">
@@ -178,6 +175,55 @@ const About = () => {
           </div>
         </div>
 
+        {/* WhatsApp CTA strip */}
+        <section className="py-14 lg:py-20 bg-[#060D18]">
+          <div className="container-site text-center">
+            <motion.p
+              className="ui-label text-[#D4A017] mb-3"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              Trade Desk
+            </motion.p>
+            <motion.h2
+              className="text-white text-2xl lg:text-3xl font-bold mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08, duration: 0.45 }}
+            >
+              Ready to source petroleum products?
+            </motion.h2>
+            <motion.p
+              className="text-white/60 mb-8 max-w-md mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.4 }}
+            >
+              Chat directly with our trade desk on WhatsApp for quotes, availability, and delivery terms.
+            </motion.p>
+            <motion.a
+              href={WA_QUOTE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#D4A017] hover:bg-[#C4920A] text-[#060D18] font-semibold transition-all duration-300 shadow-[0_0_24px_hsl(42_89%_45%/0.4)]"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <MessageCircle className="h-5 w-5" />
+              Chat with our Trade Desk
+              <ArrowRight className="h-4 w-4" />
+            </motion.a>
+          </div>
+        </section>
+
         {/* Leadership */}
         <section className="py-16 lg:py-24 bg-muted/30">
           <div className="container-site">
@@ -213,7 +259,6 @@ const About = () => {
       </main>
       <SiteFooter />
       <WhatsAppFAB />
-      <RFQModal open={rfqOpen} onClose={() => setRfqOpen(false)} />
     </div>
   );
 };
