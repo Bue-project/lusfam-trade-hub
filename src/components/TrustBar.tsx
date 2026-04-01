@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, FileCheck, Scale, Award } from "lucide-react";
 
 const signals = [
-  { icon: ShieldCheck, label: "Transaction Structuring Specialist" },
+  { icon: ShieldCheck, label: "Petroleum Facilitation Specialist" },
   { icon: FileCheck, label: "EN 590 & ASTM D1655 Compliant" },
   { icon: Scale, label: "INCOTERMS 2020 · FOB TTT / TTV" },
   { icon: Award, label: "Verified Counterparties Only" },

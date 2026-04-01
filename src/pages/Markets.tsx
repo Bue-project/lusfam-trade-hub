@@ -17,7 +17,7 @@ const markets = [
     country: "Zimbabwe",
     coords: [-19.0, 29.8] as [number, number],
     cities: "Harare, Bulawayo, Mutare",
-    highlights: ["Beira Corridor access", "Fuel import terminal", "Strategic depot network"],
+    highlights: ["Primary supply route via Beira Port", "Diesel, Petrol & Jet A-1 facilitation", "Import terminal connectivity"],
     ports: "Via Beira & Maputo ports",
     x: 62, y: 58,
   },
@@ -25,7 +25,7 @@ const markets = [
     country: "Zambia",
     coords: [-13.1, 27.8] as [number, number],
     cities: "Lusaka, Kitwe, Ndola",
-    highlights: ["Copperbelt supply chain", "Dar-es-Salaam corridor", "Cross-border logistics"],
+    highlights: ["Industrial fuel supply — Copperbelt sector", "Dual corridor access — Beira & Dar es Salaam", "Bulk diesel & petrol facilitation"],
     ports: "Via Dar-es-Salaam & Beira",
     x: 55, y: 42,
   },
@@ -33,7 +33,7 @@ const markets = [
     country: "Botswana",
     coords: [-22.3, 24.7] as [number, number],
     cities: "Gaborone, Francistown",
-    highlights: ["Trans-Kalahari corridor", "Mining sector supply", "Regional distribution"],
+    highlights: ["Trans-Kalahari corridor access", "Mining & industrial sector facilitation", "Diesel & lubricant supply coordination"],
     ports: "Via Durban & Maputo",
     x: 48, y: 64,
   },
@@ -41,7 +41,7 @@ const markets = [
     country: "Malawi",
     coords: [-13.2, 34.3] as [number, number],
     cities: "Lilongwe, Blantyre",
-    highlights: ["Nacala Corridor", "Agricultural sector supply", "Lake Malawi distribution"],
+    highlights: ["Nacala & Beira corridor access", "Diesel & petrol facilitation", "Agricultural & commercial sector support"],
     ports: "Via Nacala & Beira",
     x: 70, y: 44,
   },
@@ -49,7 +49,7 @@ const markets = [
     country: "Mozambique",
     coords: [-18.7, 35.5] as [number, number],
     cities: "Maputo, Beira, Nacala",
-    highlights: ["Port operations hub", "Coastal distribution", "Pipeline infrastructure"],
+    highlights: ["Direct Indian Ocean port access", "Beira & Maputo port infrastructure", "Jet A-1 & bulk diesel supply point"],
     ports: "Direct port access",
     x: 72, y: 60,
   },
@@ -137,7 +137,7 @@ const MarketsPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4, ease }}
               >
-                Operating across five Southern African markets with established logistics corridors and port access.
+                Facilitating petroleum supply across five Southern African markets — connected through established logistics corridors and major port infrastructure.
               </motion.p>
 
               {/* Country chips */}

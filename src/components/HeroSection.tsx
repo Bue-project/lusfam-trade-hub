@@ -62,7 +62,7 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-white mb-6">
-            {["Bulk", "Petroleum.", "Delivered."].map((word, i) => (
+            {["Bulk", "Petroleum.", "Facilitated."].map((word, i) => (
               <motion.span
                 key={word}
                 className="inline-block mr-[0.25em]"

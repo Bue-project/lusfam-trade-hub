@@ -5,10 +5,10 @@ import { FileText, CheckCircle, Truck, HandshakeIcon } from "lucide-react";
 import { WA_QUOTE } from "@/lib/whatsapp";
 
 const steps = [
-  { icon: FileText, label: "Submit RFQ", description: "Send your requirements" },
-  { icon: CheckCircle, label: "Confirmation", description: "Receive quote within 48h" },
-  { icon: HandshakeIcon, label: "Agreement", description: "Finalize terms & INCOTERMS" },
-  { icon: Truck, label: "Delivery", description: "Logistics & fulfillment" },
+  { icon: FileText, label: "Initiate Enquiry", description: "Share your procurement requirements via our trade desk" },
+  { icon: CheckCircle, label: "Quote & Screening", description: "Quote issued within 48h with counterparty verification" },
+  { icon: HandshakeIcon, label: "Documentation", description: "Finalise terms, INCOTERMS & transaction documents" },
+  { icon: Truck, label: "Supply Execution", description: "Coordinated product transfer through our trusted titleholder" },
 ];
 
 const TransactionFlowSection = () => {
@@ -27,7 +27,7 @@ const TransactionFlowSection = () => {
           transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.4 }}
         >
           <div className="ui-label text-primary mb-3">How It Works</div>
-          <h2>From Inquiry to Delivery</h2>
+          <h2>From Enquiry to Supply Execution</h2>
         </motion.div>
 
         <div ref={lineRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">

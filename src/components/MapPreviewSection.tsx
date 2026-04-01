@@ -7,11 +7,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
 const regions = [
-  { name: "Zimbabwe",   detail: "Harare, Beira Corridor",  coords: [-19.0, 29.8] as [number, number] },
-  { name: "Zambia",     detail: "Lusaka, Copperbelt",       coords: [-13.1, 27.8] as [number, number] },
-  { name: "Botswana",   detail: "Gaborone, Francistown",    coords: [-22.3, 24.7] as [number, number] },
-  { name: "Malawi",     detail: "Lilongwe, Blantyre",       coords: [-13.2, 34.3] as [number, number] },
-  { name: "Mozambique", detail: "Maputo, Beira Port",       coords: [-18.7, 35.5] as [number, number] },
+  { name: "Zimbabwe",   detail: "Harare · Beira Corridor supply route",     coords: [-19.0, 29.8] as [number, number] },
+  { name: "Zambia",     detail: "Lusaka · Copperbelt industrial supply",     coords: [-13.1, 27.8] as [number, number] },
+  { name: "Botswana",   detail: "Gaborone · Trans-Kalahari corridor",        coords: [-22.3, 24.7] as [number, number] },
+  { name: "Malawi",     detail: "Lilongwe · Nacala & Beira corridors",       coords: [-13.2, 34.3] as [number, number] },
+  { name: "Mozambique", detail: "Maputo · Beira Port — gateway hub",         coords: [-18.7, 35.5] as [number, number] },
 ];
 
 const goldIcon = L.divIcon({

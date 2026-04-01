@@ -10,7 +10,7 @@ const pillars = [
   {
     icon: Truck,
     title: "FOB TTT & TTV",
-    desc: "Deliveries executed under internationally recognised FOB Tank-to-Tank and Tank-to-Vessel terms.",
+    desc: "Transactions coordinated under internationally recognised FOB Tank-to-Tank and Tank-to-Vessel terms.",
   },
   {
     icon: Globe,

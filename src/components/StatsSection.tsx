@@ -2,11 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 
-const stats = [
-  { endValue: 5, prefix: "", suffix: "", unit: "Markets", label: "Countries Served" },
-  { endValue: 4, prefix: "", suffix: "+", unit: "", label: "Product Lines" },
-  { endValue: 48, prefix: "<", suffix: "h", unit: "", label: "RFQ Response Time" },
-  { endValue: 2, prefix: "", suffix: "", unit: "", label: "Delivery Terms (FOB)" },
+const stats: Array<
+  | { endValue: number; prefix: string; suffix: string; unit: string; label: string; text?: never }
+  | { text: string; label: string; endValue?: never; prefix?: never; suffix?: never; unit?: never }
+> = [
+  { endValue: 5, prefix: "", suffix: "", unit: "Active Markets", label: "Zimbabwe, Zambia, Botswana, Malawi & Mozambique" },
+  { endValue: 9, prefix: "", suffix: "", unit: "", label: "Petroleum Products Facilitated" },
+  { endValue: 48, prefix: "< ", suffix: "h", unit: "", label: "Quote Response Time" },
+  { text: "FOB TTT · TTV", label: "INCOTERMS 2020 Delivery Structures" },
 ];
 
 const CountUpStat = ({
@@ -67,10 +70,10 @@ const StatsSection = () => {
               transition={{ ease, duration: 0.4, delay: i * 0.07 }}
             >
               <div
-                className="text-5xl lg:text-6xl font-bold tnum mb-2"
+                className={`font-bold mb-2 ${stat.text ? "text-3xl lg:text-4xl" : "text-5xl lg:text-6xl tnum"}`}
                 style={{ color: "#D4A017", filter: "drop-shadow(0 0 16px #D4A01740)" }}
               >
-                <CountUpStat {...stat} isInView={isInView} />
+                {stat.text ? stat.text : <CountUpStat {...(stat as { endValue: number; prefix: string; suffix: string; unit: string })} isInView={isInView} />}
               </div>
               <div className="text-sm text-white/50 mt-1">{stat.label}</div>
             </motion.div>
