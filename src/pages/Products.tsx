@@ -95,7 +95,7 @@ const ProductsPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4, ease }}
                 >
-                  Browse our full range of petroleum products available for bulk procurement across Southern Africa.
+                  Browse the petroleum products we facilitate across Southern Africa — available through structured supply engagements with verified counterparties.
                 </motion.p>
 
                 {/* Category pills — clickable filters inline in hero */}
@@ -263,9 +263,9 @@ const ProductsPage = () => {
               {/* Right sticky RFQ panel */}
               <aside className="hidden lg:block">
                 <div className="sticky top-24 bg-muted rounded-xl p-5 space-y-4">
-                  <h4 className="font-semibold">Quick RFQ</h4>
+                  <h4 className="font-semibold">Quick Enquiry</h4>
                   <p className="text-sm text-muted-foreground">
-                    Need a quote? Start your request directly from here.
+                    Connect with our trade desk to initiate a structured supply enquiry.
                   </p>
                   <Button asChild className="w-full">
                     <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">

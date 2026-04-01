@@ -35,8 +35,9 @@ const SiteFooter = () => {
               className="h-10 w-auto"
             />
             <p className="text-sm text-white/50 leading-relaxed">
-              Trusted partner for the procurement and delivery of bulk
-              petroleum products across Southern Africa.
+              A registered petroleum facilitation partner — structuring
+              transactions between verified buyers and compliant suppliers
+              across Southern Africa. We do not hold title to product.
             </p>
             <div className="space-y-2.5 pt-2">
               <a

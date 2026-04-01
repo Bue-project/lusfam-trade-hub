@@ -20,7 +20,7 @@ const pillars = [
   {
     icon: Handshake,
     title: "Buyer-First Approach",
-    desc: "Every transaction is structured around the buyer's specifications, timelines, and compliance needs.",
+    desc: "Every transaction is structured around the buyer's specifications, timelines, and compliance needs. We support, not supplant, your procurement process.",
   },
 ];
 
@@ -44,14 +44,14 @@ const WhoWeAreSection = () => {
             </h2>
             <p className="text-white/60 leading-relaxed mb-4">
               LusFam Energy Trading is a division of LusFam Trust Investments
-              (Pvt) Ltd, specialising in the procurement and delivery of
-              premium-quality petroleum products across Southern Africa.
+              (Pvt) Ltd, specialising in the facilitation of structured
+              petroleum supply transactions across Southern Africa.
             </p>
             <p className="text-white/60 leading-relaxed">
-              As a legalized facilitator, we work through a trusted titleholder
-              to source and deliver products including Jet Fuel (Jet A-1),
-              Diesel (EN590), Petrol, and LPG — executed under FOB TTT and FOB
-              TTV terms.
+              As a legalized facilitator, we coordinate structured transactions
+              through a trusted titleholder — facilitating access to Jet Fuel
+              (Jet A-1), Diesel (EN590), Petrol, and LPG — under FOB TTT and
+              FOB TTV terms. We do not hold title to product.
             </p>
           </motion.div>
 

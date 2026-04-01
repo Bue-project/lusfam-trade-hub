@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { ShieldCheck, FileCheck, Scale, Award } from "lucide-react";
 
 const signals = [
-  { icon: ShieldCheck, label: "Registered Facilitator" },
+  { icon: ShieldCheck, label: "Transaction Structuring Specialist" },
   { icon: FileCheck, label: "EN 590 & ASTM D1655 Compliant" },
   { icon: Scale, label: "INCOTERMS 2020 · FOB TTT / TTV" },
-  { icon: Award, label: "Trusted Titleholder Partnership" },
+  { icon: Award, label: "Verified Counterparties Only" },
 ];
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];

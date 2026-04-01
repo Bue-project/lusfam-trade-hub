@@ -92,10 +92,10 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.58, duration: 0.55, ease: easeSmooth }}
           >
-            LusFam Energy Trading is a legalized petroleum facilitator
-            specialising in Jet Fuel, EN590 Diesel, Petrol, and LPG —
-            delivered under FOB TTT and FOB TTV terms across Zimbabwe,
-            Zambia, Botswana, Malawi, and Mozambique.
+            LusFam Energy Trading facilitates structured supply transactions
+            for Jet Fuel, EN590 Diesel, Petrol, and LPG — coordinated under
+            FOB TTT and FOB TTV terms across Zimbabwe, Zambia, Botswana,
+            Malawi, and Mozambique. We do not hold title to product.
           </motion.p>
 
           <motion.div

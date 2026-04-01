@@ -13,6 +13,8 @@ import {
   Leaf,
   MessageCircle,
   ArrowRight,
+  ScanLine,
+  Users,
 } from "lucide-react";
 import { WA_QUOTE } from "@/lib/whatsapp";
 import heroIndustry from "@/assets/hero-industry.jpg";
@@ -220,6 +222,70 @@ const Compliance = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Counterparty Engagement Policy */}
+        <section className="py-16 lg:py-24 border-t border-border">
+          <div className="container-site">
+            <div className="max-w-3xl mx-auto">
+              <div className="mb-10">
+                <p className="ui-label text-primary mb-2">Counterparty Engagement Policy</p>
+                <h2 className="text-3xl font-bold text-foreground mb-6">Who We Engage With</h2>
+                {/* Full statement as a styled block */}
+                <motion.blockquote
+                  className="border-l-4 border-[#D4A017] bg-[#D4A017]/5 rounded-r-xl px-6 py-5 mb-10"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, ease }}
+                >
+                  <p className="text-foreground/90 leading-relaxed italic text-sm lg:text-base">
+                    "LusFam Energy engages exclusively with verifiable asset holders, licensed refineries, and compliant trading entities. All counterparties undergo structured legal, operational, and sanctions screening prior to commercial engagement. ICPOs are not issued absent verified corporate existence and asset authentication."
+                  </p>
+                </motion.blockquote>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: Users,
+                    title: "Verified Asset Holders Only",
+                    description: "We engage exclusively with verifiable asset holders, licensed refineries, and compliant trading entities. Unverified or unsubstantiated counterparties are not admitted to our commercial process.",
+                  },
+                  {
+                    icon: ScanLine,
+                    title: "Structured Counterparty Screening",
+                    description: "All counterparties undergo structured legal, operational, and sanctions screening prior to commercial engagement. This includes corporate existence verification, regulatory standing, and applicable sanctions list checks.",
+                  },
+                  {
+                    icon: FileCheck,
+                    title: "ICPO Policy",
+                    description: "ICPOs (Irrevocable Corporate Purchase Orders) are not issued absent verified corporate existence and asset authentication. Documentation requirements are strictly enforced at every stage of the engagement process.",
+                  },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.title}
+                      className="flex items-start gap-4 bg-card rounded-xl p-5 shadow-card"
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.4, ease, delay: i * 0.07 }}
+                    >
+                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </div>

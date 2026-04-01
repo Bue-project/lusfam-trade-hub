@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Fuel, Flame, Plane, Droplets, Download, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { WA_SPEC } from "@/lib/whatsapp";
 
 const products = [
   { icon: Fuel, name: "Diesel (AGO)", specs: "EN 590 compliant · Bulk supply", slug: "diesel" },
@@ -46,10 +47,15 @@ const ProductTilesSection = () => {
                 </h3>
                 <p className="text-sm text-white/50 mb-6 flex-1">{product.specs}</p>
                 <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-1.5 text-xs font-medium text-[#D4A017] hover:brightness-125 transition-all">
+                  <a
+                    href={WA_SPEC(product.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs font-medium text-[#D4A017] hover:brightness-125 transition-all"
+                  >
                     <Download className="h-3.5 w-3.5" />
                     Spec Sheet
-                  </button>
+                  </a>
                   <Link
                     to="/products"
                     className="flex items-center gap-1 text-xs font-medium text-white/40 hover:text-white/80 transition-colors ml-auto"

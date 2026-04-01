@@ -95,9 +95,10 @@ const About = () => {
                   transition={{ delay: 0.2, duration: 0.4, ease }}
                 >
                   LusFam Energy Trading — a division of LusFam Trust Investments
-                  (Pvt) Ltd — is a legalized petroleum facilitator specialising
-                  in the procurement and delivery of bulk petroleum products
-                  across the region.
+                  (Pvt) Ltd — is a legalized petroleum facilitation partner,
+                  specialising in the facilitation of structured petroleum supply
+                  transactions across the region. We connect verified buyers with
+                  compliant suppliers — without holding title to product.
                 </motion.p>
               </div>
 
@@ -147,6 +148,24 @@ const About = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Counterparty policy callout */}
+        <section className="py-12 lg:py-16">
+          <div className="container-site">
+            <motion.div
+              className="border-l-4 border-[#D4A017] bg-white/[0.03] rounded-r-xl px-6 py-6 max-w-3xl"
+              initial={{ opacity: 0, x: -12 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease }}
+            >
+              <p className="ui-label text-[#D4A017] mb-3">Counterparty Policy</p>
+              <p className="text-white/80 text-base leading-relaxed italic">
+                "We engage exclusively with verifiable asset holders, licensed refineries, and compliant trading entities — with structured legal, operational, and sanctions screening on every counterparty, prior to any commercial engagement."
+              </p>
+            </motion.div>
           </div>
         </section>
 
