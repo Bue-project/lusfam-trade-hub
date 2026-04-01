@@ -12,9 +12,9 @@ import directorAgnes from "@/assets/director-agnes.png";
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const values = [
-  { icon: Target, title: "Mission-Driven", description: "Delivering reliable energy solutions across Southern Africa with integrity and precision." },
+  { icon: Target, title: "Mission-Driven", description: "Facilitating reliable access to energy solutions across Southern Africa with integrity and precision." },
   { icon: Shield, title: "Compliance First", description: "Adhering to the highest regulatory and safety standards in every transaction." },
-  { icon: Award, title: "Quality Assurance", description: "Sourcing only certified, specification-compliant petroleum products through our trusted titleholder." },
+  { icon: Award, title: "Quality Assurance", description: "Connecting buyers with certified, specification-compliant petroleum products through our trusted titleholder." },
   { icon: Users, title: "Partnership", description: "Building long-term relationships with clients, suppliers, and communities across the region." },
 ];
 
