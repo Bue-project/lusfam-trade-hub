@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { Shield, Truck, Globe, Handshake } from "lucide-react";
+import { Shield, Globe, Handshake, TrendingUp } from "lucide-react";
 
 const pillars = [
   {
-    icon: Shield,
-    title: "Legalized Facilitator",
-    desc: "Operating through a trusted titleholder with fully documented procurement channels.",
-  },
-  {
-    icon: Truck,
-    title: "FOB TTT & TTV",
-    desc: "Transactions coordinated under internationally recognised FOB Tank-to-Tank and Tank-to-Vessel terms.",
-  },
-  {
     icon: Globe,
-    title: "Southern Africa Focus",
-    desc: "Serving markets across Zimbabwe, Zambia, Botswana, Malawi, and Mozambique.",
+    title: "International Reach",
+    desc: "Supporting commercial opportunities across Africa, Latin America, Asia, and Europe through an established network of partners.",
   },
   {
     icon: Handshake,
-    title: "Buyer-First Approach",
-    desc: "Every transaction is structured around the buyer's specifications, timelines, and compliance needs. We support, not supplant, your procurement process.",
+    title: "Strategic Partnerships",
+    desc: "Developing long-term relationships with qualified buyers, suppliers, refiners, mandates, and commercial organizations.",
+  },
+  {
+    icon: Shield,
+    title: "Due Diligence Focus",
+    desc: "Promoting responsible engagement through commercial verification, transparency, and professional counterparty coordination.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Market Development",
+    desc: "Identifying and supporting growth opportunities across international energy markets with a facilitation-first approach.",
   },
 ];
 
@@ -28,7 +28,7 @@ const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const WhoWeAreSection = () => {
   return (
-    <section className="section-spacing section-mid">
+    <section className="py-20 bg-white">
       <div className="container-site">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: copy */}
@@ -38,20 +38,21 @@ const WhoWeAreSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease }}
           >
-            <div className="ui-label mb-3">Who We Are</div>
-            <h2 className="text-white mb-6 border-l-4 border-[#D4A017] pl-5">
-              A Trusted Petroleum Facilitation Partner
+            <div className="text-xs font-semibold uppercase tracking-widest text-[#C7A24A] mb-3">Who We Are</div>
+            <h2 className="text-[#0B1F3A] mb-6 border-l-4 border-[#C7A24A] pl-5">
+              An Independent Energy Transaction Facilitation Company
             </h2>
-            <p className="text-white/60 leading-relaxed mb-4">
-              LusFam Energy Trading is a division of LusFam Trust Investments
-              (Pvt) Ltd, specialising in the facilitation of structured
-              petroleum supply transactions across Southern Africa.
+            <p className="text-gray-600 leading-relaxed mb-4">
+              LusFam Energy Trading (Private) Limited was incorporated on 21 April 2026,
+              building upon more than five years of practical experience in petroleum
+              transaction facilitation, commercial relationship development, and
+              international market engagement.
             </p>
-            <p className="text-white/60 leading-relaxed">
-              As a legalized facilitator, we coordinate structured transactions
-              through a trusted titleholder — facilitating access to Jet Fuel
-              (Jet A-1), Diesel (EN590), Petrol, and LPG — under FOB TTT and
-              FOB TTV terms. We do not hold title to product.
+            <p className="text-gray-600 leading-relaxed">
+              We support responsible participation in international petroleum markets
+              by connecting qualified buyers, suppliers, refiners, mandates, and
+              strategic partners. We act as a facilitator — not a titleholder — ensuring
+              transparent and professionally structured commercial engagements.
             </p>
           </motion.div>
 
@@ -62,21 +63,17 @@ const WhoWeAreSection = () => {
               return (
                 <motion.div
                   key={pillar.title}
-                  className="glass-card rounded-xl p-5 cursor-default"
-                  initial={{ opacity: 0, y: 12 }}
+                  className="rounded-xl p-5 border border-gray-100 bg-gray-50 hover:border-[#C7A24A]/30 hover:bg-[#C7A24A]/5 transition-colors duration-200"
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.4, ease, delay: i * 0.07 }}
+                  transition={{ ease, duration: 0.4, delay: i * 0.07 }}
                 >
-                  <div className="h-10 w-10 rounded-lg bg-[#D4A017]/15 flex items-center justify-center mb-3 transition-colors duration-200 group-hover:bg-[#D4A017]/25">
-                    <Icon className="h-5 w-5 text-[#D4A017]" />
+                  <div className="h-10 w-10 rounded-lg bg-[#0B1F3A] flex items-center justify-center mb-3">
+                    <Icon className="h-5 w-5 text-[#C7A24A]" />
                   </div>
-                  <h3 className="text-sm font-semibold text-white mb-1">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs text-white/55 leading-relaxed">
-                    {pillar.desc}
-                  </p>
+                  <h3 className="text-sm font-semibold text-[#0B1F3A] mb-1">{pillar.title}</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">{pillar.desc}</p>
                 </motion.div>
               );
             })}
