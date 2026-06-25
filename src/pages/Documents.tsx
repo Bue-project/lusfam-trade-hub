@@ -10,24 +10,27 @@ const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const availableDocs = [
   {
+    title: "Certificate of Incorporation",
+    description:
+      "Official certificate confirming the incorporation of LusFam Energy Trading (Private) Limited in Zimbabwe on 21 April 2026.",
+    icon: FileText,
+  },
+  {
     title: "Corporate Profile",
     description:
       "Overview of LusFam Energy Trading (Private) Limited — company background, structure, scope of activities, and contact information.",
-    status: "available",
     icon: FileText,
   },
   {
     title: "Buyer & Market Capability Statement",
     description:
       "A summary of our buyer engagement capability, market reach, and the procurement structures we support.",
-    status: "available",
     icon: FileText,
   },
   {
     title: "Product Requirement Summary",
     description:
       "An outline of the petroleum products we facilitate, including specification references and delivery structures.",
-    status: "available",
     icon: FileText,
   },
 ];
@@ -107,7 +110,7 @@ const Documents = () => {
               <h2 className="text-[#0B1F3A]">Available Downloads</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {availableDocs.map((doc, i) => {
                 const Icon = doc.icon;
                 return (
@@ -145,7 +148,7 @@ const Documents = () => {
               })}
             </div>
 
-            {/* Upcoming */}
+            {/* Future Additions — hidden from view, preserved for later use
             <motion.div
               className="mb-8"
               initial={{ opacity: 0, y: 8 }}
@@ -182,6 +185,7 @@ const Documents = () => {
                 </motion.div>
               ))}
             </div>
+            */}
           </div>
         </section>
 
