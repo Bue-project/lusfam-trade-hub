@@ -32,7 +32,7 @@ const commitments = [
     icon: Scale,
     title: "INCOTERMS Reference",
     description:
-      "Commercial opportunities facilitated by LusFam Energy may reference INCOTERMS 2020 structures, including FOB TTT (Tank-to-Tank) and FOB TTV (Tank-to-Vessel) terms. Applicable delivery terms are determined by the parties to each transaction.",
+      "LusFam Energy supports opportunities involving internationally recognised transaction structures, including FOB TTT (Tank-to-Tank) and CIF arrangements where applicable, subject to supplier requirements, buyer mandates, and mutually agreed transaction terms.",
   },
   {
     icon: Shield,
