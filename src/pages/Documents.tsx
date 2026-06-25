@@ -10,12 +10,6 @@ const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 const availableDocs = [
   {
-    title: "Certificate of Incorporation",
-    description:
-      "Official certificate confirming the incorporation of LusFam Energy Trading (Private) Limited in Zimbabwe on 21 April 2026.",
-    icon: FileText,
-  },
-  {
     title: "Corporate Profile",
     description:
       "Overview of LusFam Energy Trading (Private) Limited — company background, structure, scope of activities, and contact information.",
@@ -31,6 +25,12 @@ const availableDocs = [
     title: "Product Requirement Summary",
     description:
       "An outline of the petroleum products we facilitate, including specification references and delivery structures.",
+    icon: FileText,
+  },
+  {
+    title: "Certificate of Incorporation",
+    description:
+      "Official certificate confirming the incorporation of LusFam Energy Trading (Private) Limited in Zimbabwe on 21 April 2026.",
     icon: FileText,
   },
 ];
