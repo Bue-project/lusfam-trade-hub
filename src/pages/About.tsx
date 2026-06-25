@@ -132,6 +132,42 @@ const About = () => {
           </div>
         </section>
 
+        {/* MD Message */}
+        <section className="py-20 bg-[#0B1F3A]">
+          <div className="container-site">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ ease, duration: 0.5 }}
+              >
+                <div className="text-xs font-semibold uppercase tracking-widest text-[#C7A24A] mb-8 text-center">
+                  A Message from Our Managing Director
+                </div>
+                <blockquote className="relative">
+                  <div className="text-5xl text-[#C7A24A]/30 font-serif leading-none mb-4 select-none">&ldquo;</div>
+                  <p className="text-white/90 text-lg lg:text-xl leading-relaxed font-light italic mb-8">
+                    At LusFam Energy, we believe successful commercial relationships are built
+                    on professionalism, transparency, due diligence, and long-term cooperation.
+                    Our objective is to connect credible market participants and support
+                    responsible engagement within international energy markets.
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="h-px flex-1 bg-white/10" />
+                    <div className="text-right">
+                      <p className="text-white font-semibold">Absalom Lusuwi</p>
+                      <p className="text-[#C7A24A] text-xs uppercase tracking-widest mt-0.5">
+                        Founder &amp; Managing Director
+                      </p>
+                    </div>
+                  </div>
+                </blockquote>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Values */}
         <section className="py-20 bg-gray-50">
           <div className="container-site">
