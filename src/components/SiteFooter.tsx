@@ -105,7 +105,7 @@ const SiteFooter = () => {
             </h4>
             <p className="text-sm text-white/40 leading-relaxed">
               LusFam Energy Trading (Private) Limited is incorporated in
-              Zimbabwe. Registration No. pending. We act as a transaction
+              Zimbabwe. Registration No. 101629A0242026. We act as a transaction
               facilitator and do not hold title to petroleum products.
             </p>
           </div>
