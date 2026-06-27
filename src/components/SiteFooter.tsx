@@ -1,30 +1,28 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-lusfam.jpeg";
+import { CONTACT_EMAIL, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_ADDRESS } from "@/lib/whatsapp";
 
 const footerLinks = {
-  Services: [
-    { label: "Diesel", href: "/products" },
-    { label: "Petrol", href: "/products" },
-    { label: "Jet Fuel", href: "/products" },
-    { label: "LPG", href: "/products" },
-  ],
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Markets", href: "/markets" },
+    { label: "Services", href: "/services" },
     { label: "Compliance", href: "/compliance" },
+    { label: "Documents", href: "/documents" },
     { label: "Contact", href: "/contact" },
   ],
-  Resources: [
-    { label: "Downloads", href: "/downloads" },
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
+  Products: [
+    { label: "EN590 Diesel", href: "/products" },
+    { label: "Jet A-1", href: "/products" },
+    { label: "D6 Fuel Oil", href: "/products" },
+    { label: "LPG / LNG", href: "/products" },
+    { label: "Crude Oil", href: "/products" },
   ],
 };
 
 const SiteFooter = () => {
   return (
-    <footer style={{ backgroundColor: "#040912" }} className="border-t border-white/10">
+    <footer className="bg-[#0B1F3A] border-t border-white/10">
       <div className="container-site py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand + contact */}
@@ -35,24 +33,35 @@ const SiteFooter = () => {
               className="h-10 w-auto"
             />
             <p className="text-sm text-white/50 leading-relaxed">
-              A registered petroleum facilitation partner — structuring
-              transactions between verified buyers and compliant suppliers
-              across Southern Africa. We do not hold title to product.
+              An independent energy transaction facilitation company connecting
+              qualified buyers, suppliers, refiners, mandates, and strategic
+              partners across international markets.
             </p>
             <div className="space-y-2.5 pt-2">
+              <div className="flex items-start gap-2 text-sm text-white/50">
+                <MapPin className="h-3.5 w-3.5 shrink-0 text-[#C7A24A] mt-0.5" />
+                {CONTACT_ADDRESS}
+              </div>
               <a
-                href="tel:+263773540198"
+                href={`tel:${CONTACT_PHONE_PRIMARY.replace(/\s/g, "")}`}
                 className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors group"
               >
-                <Phone className="h-3.5 w-3.5 shrink-0 text-[#D4A017]" />
-                +263 77 354 0198
+                <Phone className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
+                {CONTACT_PHONE_PRIMARY}
               </a>
               <a
-                href="mailto:info@lusfamenergy.com"
+                href={`tel:${CONTACT_PHONE_SECONDARY.replace(/\s/g, "")}`}
                 className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
               >
-                <Mail className="h-3.5 w-3.5 shrink-0 text-[#D4A017]" />
-                info@lusfamenergy.com
+                <Phone className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
+                {CONTACT_PHONE_SECONDARY}
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <Mail className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
+                {CONTACT_EMAIL}
               </a>
               <a
                 href="https://wa.me/263773540198"
@@ -60,7 +69,7 @@ const SiteFooter = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
               >
-                <MessageCircle className="h-3.5 w-3.5 shrink-0 text-[#D4A017]" />
+                <MessageCircle className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
                 WhatsApp
               </a>
             </div>
@@ -70,7 +79,7 @@ const SiteFooter = () => {
             <div key={category}>
               <h4
                 className="font-semibold uppercase text-xs tracking-widest mb-4"
-                style={{ color: "#D4A017" }}
+                style={{ color: "#C7A24A" }}
               >
                 {category}
               </h4>
@@ -79,7 +88,7 @@ const SiteFooter = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-sm text-white/50 hover:text-[#D4A017] transition-colors duration-200"
+                      className="text-sm text-white/50 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -88,26 +97,27 @@ const SiteFooter = () => {
               </ul>
             </div>
           ))}
+
+          {/* Legal / tagline */}
+          <div>
+            <h4 className="font-semibold uppercase text-xs tracking-widest mb-4" style={{ color: "#C7A24A" }}>
+              Legal
+            </h4>
+            <p className="text-sm text-white/40 leading-relaxed">
+              LusFam Energy Trading (Private) Limited is incorporated in
+              Zimbabwe. Registration No. pending. We act as a transaction
+              facilitator and do not hold title to petroleum products.
+            </p>
+          </div>
         </div>
 
-        <hr className="border-white/10 my-12" />
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/35 text-center md:text-left max-w-none">
-            © {new Date().getFullYear()} LusFam Energy Trading — a division of
-            LusFam Trust Investments (Pvt) Ltd. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/30">
+            &copy; {new Date().getFullYear()} LusFam Energy Trading (Private) Limited. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy" className="text-xs text-white/35 hover:text-white/60 transition-colors">
-              Privacy
-            </Link>
-            <Link to="/terms" className="text-xs text-white/35 hover:text-white/60 transition-colors">
-              Terms
-            </Link>
-            <Link to="/compliance" className="text-xs text-white/35 hover:text-[#D4A017] transition-colors">
-              Compliance
-            </Link>
-          </div>
+          <p className="text-xs text-white/30">
+            Stand 2488, Crowhill, Harare, Zimbabwe
+          </p>
         </div>
       </div>
     </footer>
