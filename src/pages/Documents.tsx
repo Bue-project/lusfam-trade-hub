@@ -21,7 +21,7 @@ const availableDocs = [
     description:
       "A summary of our buyer engagement capability, market reach, and the procurement structures we support.",
     icon: FileText,
-    waHref: WA_DOCUMENT("Buyer & Market Capability Statement"),
+    pdfPath: "/docs/Buyer_Market_Capability_Statement.pdf",
   },
   {
     title: "Product Requirement Summary",
