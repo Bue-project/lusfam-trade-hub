@@ -228,11 +228,11 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ ease, duration: 0.5, delay: i * 0.1 }}
                 >
-                  <div className="aspect-[4/3] bg-gray-100 overflow-hidden">
+                  <div className="bg-gray-100 overflow-hidden">
                     <img
                       src={person.photo}
                       alt={person.name}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                   <div className="p-6">
