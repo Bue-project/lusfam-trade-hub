@@ -9,6 +9,8 @@ export const WA_PRODUCT = (name: string) =>
   waLink(`Hello, I am interested in ${name}. Please send me more information.`);
 export const WA_SPEC = (name: string) =>
   waLink(`Hello, could you please send me the specification sheet for ${name}?`);
+export const WA_DOCUMENT = (name: string) =>
+  waLink(`Hello, I would like to request the ${name} document. Please assist.`);
 
 export const CONTACT_EMAIL = "absalomlusuwi@lusfamenergy.com";
 export const CONTACT_PHONE_PRIMARY = "+263 77 354 0198";
