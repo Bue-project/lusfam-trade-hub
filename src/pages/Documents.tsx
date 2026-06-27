@@ -14,7 +14,7 @@ const availableDocs = [
     description:
       "Overview of LusFam Energy Trading (Private) Limited — company background, structure, scope of activities, and contact information.",
     icon: FileText,
-    waHref: WA_DOCUMENT("Corporate Profile"),
+    pdfPath: "/docs/lusfam_energy_corporate_profile.pdf",
   },
   {
     title: "Buyer & Market Capability Statement",
@@ -28,14 +28,7 @@ const availableDocs = [
     description:
       "An outline of the petroleum products we facilitate, including specification references and delivery structures.",
     icon: FileText,
-    waHref: WA_DOCUMENT("Product Requirement Summary"),
-  },
-  {
-    title: "Certificate of Incorporation",
-    description:
-      "Official certificate confirming the incorporation of LusFam Energy Trading (Private) Limited in Zimbabwe on 21 April 2026.",
-    icon: FileText,
-    waHref: WA_DOCUMENT("Certificate of Incorporation"),
+    pdfPath: "/docs/Product_Requirement_Summary.pdf",
   },
 ];
 
@@ -138,15 +131,26 @@ const Documents = () => {
                       </div>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed mb-5">{doc.description}</p>
-                    <a
-                      href={doc.waHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7A24A] hover:text-[#0B1F3A] transition-colors"
-                    >
-                      <Download className="h-4 w-4" />
-                      Request Document
-                    </a>
+                    {doc.pdfPath ? (
+                      <a
+                        href={doc.pdfPath}
+                        download
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7A24A] hover:text-[#0B1F3A] transition-colors"
+                      >
+                        <Download className="h-4 w-4" />
+                        Download PDF
+                      </a>
+                    ) : (
+                      <a
+                        href={doc.waHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7A24A] hover:text-[#0B1F3A] transition-colors"
+                      >
+                        <Download className="h-4 w-4" />
+                        Request Document
+                      </a>
+                    )}
                   </motion.div>
                 );
               })}
