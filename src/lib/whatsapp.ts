@@ -13,6 +13,7 @@ export const WA_DOCUMENT = (name: string) =>
   waLink(`Hello, I would like to request the ${name} document. Please assist.`);
 
 export const CONTACT_EMAIL = "absalomlusuwi@lusfamenergy.com";
+export const CONTACT_EMAIL_INFO = "info@lusfamenergy.com";
 export const CONTACT_PHONE_PRIMARY = "+263 77 354 0198";
 export const CONTACT_PHONE_SECONDARY = "+263 71 222 0874";
 export const CONTACT_ADDRESS = "Stand 2488, Crowhill, Harare, Zimbabwe";
