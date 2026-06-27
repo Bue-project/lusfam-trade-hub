@@ -3,7 +3,7 @@ import { FileText, Download, ArrowRight, MessageCircle, Lock } from "lucide-reac
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import { WA_QUOTE } from "@/lib/whatsapp";
+import { WA_DOCUMENT, WA_QUOTE } from "@/lib/whatsapp";
 import heroIndustry from "@/assets/hero-industry.jpg";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
@@ -14,24 +14,28 @@ const availableDocs = [
     description:
       "Overview of LusFam Energy Trading (Private) Limited — company background, structure, scope of activities, and contact information.",
     icon: FileText,
+    waHref: WA_DOCUMENT("Corporate Profile"),
   },
   {
     title: "Buyer & Market Capability Statement",
     description:
       "A summary of our buyer engagement capability, market reach, and the procurement structures we support.",
     icon: FileText,
+    waHref: WA_DOCUMENT("Buyer & Market Capability Statement"),
   },
   {
     title: "Product Requirement Summary",
     description:
       "An outline of the petroleum products we facilitate, including specification references and delivery structures.",
     icon: FileText,
+    waHref: WA_DOCUMENT("Product Requirement Summary"),
   },
   {
     title: "Certificate of Incorporation",
     description:
       "Official certificate confirming the incorporation of LusFam Energy Trading (Private) Limited in Zimbabwe on 21 April 2026.",
     icon: FileText,
+    waHref: WA_DOCUMENT("Certificate of Incorporation"),
   },
 ];
 
@@ -135,7 +139,7 @@ const Documents = () => {
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed mb-5">{doc.description}</p>
                     <a
-                      href={WA_QUOTE}
+                      href={doc.waHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7A24A] hover:text-[#0B1F3A] transition-colors"
