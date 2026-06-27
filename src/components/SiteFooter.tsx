@@ -5,8 +5,10 @@ import { CONTACT_EMAIL, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_
 
 const footerLinks = {
   Company: [
+    { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Markets", href: "/markets" },
     { label: "Compliance", href: "/compliance" },
     { label: "Documents", href: "/documents" },
     { label: "Contact", href: "/contact" },

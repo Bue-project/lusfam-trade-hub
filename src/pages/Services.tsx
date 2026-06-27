@@ -140,7 +140,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ ease, duration: 0.4 }}
             >
-              Ready to Discuss an Opportunity?
+              Ready to Explore a Commercial Opportunity?
             </motion.h2>
             <motion.p
               className="text-white/60 mb-8 max-w-lg mx-auto"

@@ -153,7 +153,7 @@ const Contact = () => {
                   <div className="p-8 rounded-2xl bg-green-50 border border-green-200 text-center">
                     <div className="text-4xl mb-3">✓</div>
                     <h3 className="text-green-800 font-semibold mb-2">Message Sent</h3>
-                    <p className="text-green-600 text-sm">Your enquiry has been sent via WhatsApp. We will respond as soon as possible.</p>
+                    <p className="text-green-600 text-sm">Your enquiry has been sent via WhatsApp. We aim to respond to all legitimate business enquiries within one business day.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
