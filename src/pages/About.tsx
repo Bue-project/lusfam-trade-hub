@@ -4,8 +4,8 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import { Shield, Award, Users, Heart, Eye, TrendingUp, Lock } from "lucide-react";
 import heroIndustry from "@/assets/hero-industry.jpg";
-import directorAbsalom from "@/assets/director-absalom.png";
-import directorAgnes from "@/assets/director-agnes.png";
+import directorAbsalom from "@/assets/director-absalom.jpg";
+import directorAgnes from "@/assets/director-agnes.jpg";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
