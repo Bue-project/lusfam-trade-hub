@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, Download } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-terminal.jpg";
 import { WA_QUOTE } from "@/lib/whatsapp";
 import { Link } from "react-router-dom";
@@ -120,6 +120,16 @@ const HeroSection = () => {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
+            <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-[#25D366]/50 text-white hover:bg-[#25D366]/20 hover:border-[#25D366] px-6 gap-2"
+              >
+                <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                WhatsApp
+              </Button>
+            </a>
           </motion.div>
         </div>
       </div>
