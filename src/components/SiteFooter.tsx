@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-lusfam.jpeg";
-import { CONTACT_EMAIL, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_ADDRESS } from "@/lib/whatsapp";
+import { CONTACT_EMAIL, CONTACT_EMAIL_INFO, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_ADDRESS } from "@/lib/whatsapp";
 
 const footerLinks = {
   Company: [
@@ -64,6 +64,13 @@ const SiteFooter = () => {
               >
                 <Mail className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
                 {CONTACT_EMAIL}
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL_INFO}`}
+                className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <Mail className="h-3.5 w-3.5 shrink-0 text-[#C7A24A]" />
+                {CONTACT_EMAIL_INFO}
               </a>
               <a
                 href="https://wa.me/263773540198"

@@ -5,7 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight, Send } from "lucide-react";
 import heroIndustry from "@/assets/hero-industry.jpg";
-import { WA_QUOTE, CONTACT_EMAIL, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_ADDRESS } from "@/lib/whatsapp";
+import { WA_QUOTE, CONTACT_EMAIL, CONTACT_EMAIL_INFO, CONTACT_PHONE_PRIMARY, CONTACT_PHONE_SECONDARY, CONTACT_ADDRESS } from "@/lib/whatsapp";
 
 const ease: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
@@ -111,8 +111,12 @@ const Contact = () => {
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-0.5">Email</p>
                       <a href={`mailto:${CONTACT_EMAIL}`}
-                        className="text-gray-700 text-sm hover:text-[#C7A24A] transition-colors">
+                        className="block text-gray-700 text-sm hover:text-[#C7A24A] transition-colors">
                         {CONTACT_EMAIL}
+                      </a>
+                      <a href={`mailto:${CONTACT_EMAIL_INFO}`}
+                        className="block text-gray-700 text-sm hover:text-[#C7A24A] transition-colors">
+                        {CONTACT_EMAIL_INFO}
                       </a>
                     </div>
                   </div>
