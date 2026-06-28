@@ -15,7 +15,7 @@ const WhatsAppFAB = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      <MessageCircle className="h-6 w-6 text-background" />
+      <MessageCircle className="h-6 w-6 text-white" />
     </motion.a>
   );
 };
