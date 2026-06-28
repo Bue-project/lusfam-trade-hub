@@ -7,11 +7,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
 const regions = [
-  { name: "Zimbabwe",   detail: "Harare · Beira Corridor supply route",     coords: [-19.0, 29.8] as [number, number] },
-  { name: "Zambia",     detail: "Lusaka · Copperbelt industrial supply",     coords: [-13.1, 27.8] as [number, number] },
-  { name: "Botswana",   detail: "Gaborone · Trans-Kalahari corridor",        coords: [-22.3, 24.7] as [number, number] },
-  { name: "Malawi",     detail: "Lilongwe · Nacala & Beira corridors",       coords: [-13.2, 34.3] as [number, number] },
-  { name: "Mozambique", detail: "Maputo · Beira Port — gateway hub",         coords: [-18.7, 35.5] as [number, number] },
+  { name: "Africa",                   detail: "Harare · Pan-African market engagement",         coords: [-17.8,  31.0] as [number, number] },
+  { name: "Middle East",              detail: "Dubai · Supplier & refinery relationships",       coords: [ 25.2,  55.3] as [number, number] },
+  { name: "Asia",                     detail: "Singapore · Industrial demand facilitation",      coords: [  1.4, 103.8] as [number, number] },
+  { name: "Europe",                   detail: "Rotterdam · Trading organisations & mandates",    coords: [ 51.9,   4.5] as [number, number] },
+  { name: "Latin America & Caribbean",detail: "Panama · Procurement & partnership development", coords: [  9.0, -79.5] as [number, number] },
 ];
 
 const goldIcon = L.divIcon({
@@ -48,7 +48,7 @@ const MapPreviewSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Real Leaflet map */}
+          {/* Leaflet map */}
           <motion.div
             className="rounded-xl overflow-hidden border border-white/10 h-[400px] lg:h-[480px] w-full"
             initial={{ opacity: 0 }}
@@ -57,8 +57,8 @@ const MapPreviewSection = () => {
             transition={{ ease: [0.32, 0.72, 0, 1], duration: 0.5 }}
           >
             <MapContainer
-              center={[-17, 29]}
-              zoom={4}
+              center={[20, 20]}
+              zoom={2}
               scrollWheelZoom={false}
               zoomControl={true}
               attributionControl={false}
@@ -88,7 +88,7 @@ const MapPreviewSection = () => {
             </MapContainer>
           </motion.div>
 
-          {/* Country cards — unchanged */}
+          {/* Region cards */}
           <div className="space-y-4">
             {regions.map((region, i) => (
               <motion.div
