@@ -12,22 +12,22 @@ const regions = [
   {
     name: "Africa",
     description:
-      "Supporting emerging and established petroleum markets throughout the continent, with a foundation in Southern Africa and an expanding presence across East, West, and Central Africa.",
+      "Supporting petroleum transaction opportunities across the African continent, working with buyers, suppliers, and market participants in established and emerging energy markets throughout Africa.",
     highlights: [
-      "Southern Africa: Zimbabwe, Zambia, Botswana, Malawi, Mozambique",
-      "East Africa corridor access",
+      "Pan-African buyer and supplier engagement",
+      "East, West, Central, and Southern Africa",
       "Commercial procurement facilitation",
     ],
     color: "#C7A24A",
   },
   {
-    name: "Latin America",
+    name: "Middle East",
     description:
-      "Engaging with procurement opportunities and strategic supply relationships across Latin American energy markets, where growing industrial demand creates facilitation opportunities.",
+      "Engaging with suppliers, refiners, and mandates in Middle Eastern energy markets, where established production and export infrastructure creates strong facilitation opportunities.",
     highlights: [
-      "Procurement opportunity engagement",
-      "Supplier and mandate introductions",
-      "Strategic partnership development",
+      "Supplier and refinery relationships",
+      "Mandate and intermediary engagement",
+      "Strategic supply partnership development",
     ],
     color: "#C7A24A",
   },
@@ -45,11 +45,22 @@ const regions = [
   {
     name: "Europe",
     description:
-      "Developing relationships with commercial trading organizations and market participants in European energy markets, with a focus on professional and compliant engagement.",
+      "Developing relationships with commercial trading organisations and market participants in European energy markets, with a focus on professional and compliant engagement.",
     highlights: [
-      "Commercial trading organization engagement",
+      "Commercial trading organisation engagement",
       "Refinery and mandate relationships",
       "Due diligence-oriented partnerships",
+    ],
+    color: "#C7A24A",
+  },
+  {
+    name: "Latin America & Caribbean",
+    description:
+      "Engaging with procurement opportunities and strategic supply relationships across Latin American and Caribbean energy markets, where growing industrial demand creates facilitation opportunities.",
+    highlights: [
+      "Procurement opportunity engagement",
+      "Supplier and mandate introductions",
+      "Strategic partnership development",
     ],
     color: "#C7A24A",
   },
@@ -60,7 +71,7 @@ const whyPartner = [
   { title: "Long-Term Relationship Focus", desc: "We invest in partnerships built for durability, not one-off transactions." },
   { title: "Confidentiality & Integrity", desc: "Commercially sensitive information is protected at every stage." },
   { title: "Due Diligence-Oriented Approach", desc: "We promote responsible counterparty verification and transparency." },
-  { title: "International Market Reach", desc: "Active across Africa, Latin America, Asia, and Europe." },
+  { title: "International Market Reach", desc: "Active across Africa, the Middle East, Asia, Europe, and Latin America & Caribbean." },
   { title: "Strategic Commercial Development", desc: "Supporting market entry, supply development, and buyer engagement." },
 ];
 
@@ -117,7 +128,7 @@ const Markets = () => {
               <h2 className="text-[#0B1F3A]">Our Global Regions</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regions.map((region, i) => (
                 <motion.div
                   key={region.name}
