@@ -96,35 +96,35 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.05, duration: 0.4, ease: easeSmooth }}
           >
-            <Link to="/documents">
+            <Link to="/documents" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-[#C7A24A] hover:bg-[#C7A24A]/90 text-[#0B1F3A] font-semibold px-6 gap-2"
+                className="w-full sm:w-auto bg-[#C7A24A] hover:bg-[#C7A24A]/90 text-[#0B1F3A] font-semibold px-6 gap-2"
               >
                 <Download className="h-4 w-4" />
                 Corporate Profile
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link to="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/60 px-6 gap-2"
+                className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 hover:border-white/60 px-6 gap-2"
               >
                 Contact Us
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer">
+            <a href={WA_QUOTE} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#25D366]/50 text-white hover:bg-[#25D366]/20 hover:border-[#25D366] px-6 gap-2"
+                className="w-full sm:w-auto border-[#25D366]/50 text-white hover:bg-[#25D366]/20 hover:border-[#25D366] px-6 gap-2"
               >
                 <MessageCircle className="h-4 w-4 text-[#25D366]" />
                 WhatsApp
