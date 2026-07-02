@@ -37,25 +37,7 @@ const TrustBar = () => {
                   },
                 }}
               >
-                <motion.div
-                  animate={{
-                    scale: [1, 1.18, 1],
-                    filter: [
-                      "drop-shadow(0 0 0px #D4A017)",
-                      "drop-shadow(0 0 6px #D4A017aa)",
-                      "drop-shadow(0 0 0px #D4A017)",
-                    ],
-                  }}
-                  transition={{
-                    delay: 0.6 + i * 0.2,
-                    duration: 1.2,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatDelay: 3.5,
-                  }}
-                >
-                  <Icon className="h-5 w-5 text-[#D4A017] shrink-0" />
-                </motion.div>
+                <Icon className="h-5 w-5 text-[#D4A017] shrink-0" />
                 <motion.span
                   className="text-xs font-semibold text-white tracking-wide leading-tight"
                   variants={{

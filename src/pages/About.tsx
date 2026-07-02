@@ -22,20 +22,13 @@ const leadership = [
   {
     name: "Absalom Lusuwi",
     role: "Founder & Managing Director",
-    bio: [
-      "Absalom Lusuwi is the Founder and Managing Director of LusFam Energy Trading. He founded the company to formalize and expand his participation in the international energy sector, building on his experience in business development, petroleum trading, and cross-border commercial engagement.",
-      "He leads the company's strategic direction, business development, and international partnerships, working with reputable suppliers, buyers, and industry stakeholders across Africa, the Middle East, the Caribbean, Asia, and other global markets.",
-      "Committed to professionalism, transparency, and long-term business relationships, Mr. Lusuwi continues to guide LusFam Energy Trading's growth as a trusted partner in the international petroleum trading industry.",
-    ],
+    bio: "Absalom Lusuwi has spent more than five years developing relationships and opportunities within international petroleum markets. His experience includes buyer engagement, supplier sourcing, transaction coordination, market development, and commercial relationship management. He founded LusFam Energy Trading to formalize and expand this work on an international scale.",
     photo: directorAbsalom,
   },
   {
     name: "Agnes Fungai Lusuwi",
-    role: "Executive Director – Administration & Strategic Partnerships",
-    bio: [
-      "Agnes Fungai Lusuwi is the Executive Director – Administration & Strategic Partnerships at LusFam Energy Trading. With more than 20 years of experience in administration, donor coordination, stakeholder engagement, diplomacy, and international relations, she plays a key role in strengthening the company's governance and strategic partnerships.",
-      "Her expertise in relationship management, international cooperation, and agreement facilitation supports LusFam Energy Trading's commitment to building trusted, long-term partnerships across global markets.",
-    ],
+    role: "Director",
+    bio: "Agnes Fungai Lusuwi contributes to the company's governance, administration, and strategic oversight. Her involvement ensures that LusFam Energy Trading maintains strong internal processes and operates with integrity across all its activities.",
     photo: directorAgnes,
   },
 ];
@@ -245,11 +238,7 @@ const About = () => {
                   <div className="p-6">
                     <div className="text-xs font-semibold uppercase tracking-widest text-[#C7A24A] mb-1">{person.role}</div>
                     <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">{person.name}</h3>
-                    <div className="space-y-3">
-                      {person.bio.map((para, j) => (
-                        <p key={j} className="text-sm text-gray-500 leading-relaxed">{para}</p>
-                      ))}
-                    </div>
+                    <p className="text-sm text-gray-500 leading-relaxed">{person.bio}</p>
                   </div>
                 </motion.div>
               ))}
